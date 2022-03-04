@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Forms namu darbai
+    </title>
+</head>
+
+<body>
+    <header>
+        Register
+    </header>
+    <form>
+        <label for="First name">
+            <div>First name:</div>
+            <input name="First name" type="text" required>
+        </label>
+
+        <label for="Last name">
+            <div>Last name:</div>
+            <input name="Last name" type="text" required>
+        </label>
+
+        <label for="Email">
+            <div>Email:</div>
+            <input name="Email" type="email" required>
+        </label>
+
+        <div>Description:</div>
+        <textarea maxlength="200"></textarea>
+
+        <label for="Gender">
+            <div>Gender:</div>
+            <input name="Gender" type="radio">Male
+            <input name="Gender" type="radio">Female
+        </label>
+
+        <label for="Date of birth">
+            <div>Date of birth:</div>
+            <input name="Date of birth" type="date" required>
+        </label>
+
+
+        <Label for="City of birth">
+            <div>City of birth:</div>
+            <select name="City of birth">
+                <option>Vilnius</option>
+                <option>Kaunas</option>
+                <option>Klaipeda</option>
+                <option>Siauliai</option>
+                <option>Panevezys</option>
+            </select>
+        </Label>
+
+
+        <Label for="Adress">
+            <div>Adress:</div>
+            <input name="Adress" type="adress">
+        </Label>
+
+        <label for="Newsletter">
+            <div>Subscribe to newsletter:</div>
+            <input name="Newsletter" type="checkbox">
+        </label>
+
+
+
+        <button type="reset">Reset</button>
+
+        <button type="submit" formaction="./Success.html">
+            Submit
+        </button>
+
+
+
+    </form>
+
+
+</body>
+
+</html>
