@@ -8,15 +8,15 @@
 
 <body>
     <form>
-        <label for="Vardas">
-            <div>Vardas:</div>
-            <input for="Vardas" type="text" required>
+        <label for="Name">
+            <div>Name:</div>
+            <input for="Name" type="text" required>
         </label>
 
 
-        <label for="Pavarde">
-            <div>Pavarde:</div>
-            <input for="Pavarde" type="text" required>
+        <label for="Surname">
+            <div>Surname:</div>
+            <input for="Surname" type="text" required>
         </label>
 
         <label for="email">
@@ -24,13 +24,26 @@
             <input for="email" type="email">
         </label>
 
-        <button type="submit">Register</button>
-
         <label for="Newsletter">
-            <div>Prenumerata:</div>
+            <div>Subscribe to newsletter:</div>
             <input for="Newsletter" type="checkbox">
         </label>
 
+        <div>Pets:</div>
+
+        <select name="Pets">
+            <option value="Rabbit">Rabbit</option>
+            <option value="Snake">Snake</option>
+            <option value="Kapibarra">Kapibarra</option>
+            <option value="Iguana">Iguana</option>
+            <option value="Emu">Emu</option>
+        </select>
+
+
+        <div>Description:</div>
+        <textarea required maxlength="100"></textarea>
+
+        <button type="submit">Register</button>
 
     </form>
 </body>
