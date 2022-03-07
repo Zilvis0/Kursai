@@ -1,0 +1,18 @@
+.Pirmas {
+    background: teal;
+    font-style: italic;
+}
+
+.Antras {
+    background: aquamarine;
+    font-weight: lighter;
+}
+
+.Trecias {
+    background: turquoise;
+    font-weight: bold;
+}
+
+body {
+    font-family: "Roboto";
+}
