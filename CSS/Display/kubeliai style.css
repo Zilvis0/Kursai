@@ -1,0 +1,10 @@
+div {
+    width: 50px;
+    height: 50px;
+    background: cyan;
+    border: 3px solid green;
+    display: inline-block;
+    margin: none;
+    padding: 0cm;
+    margin-right: -4px;
+    }

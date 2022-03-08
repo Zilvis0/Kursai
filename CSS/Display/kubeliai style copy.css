@@ -1,0 +1,95 @@
+
+.eilute1-1 {
+    display: inline-block;
+    width: 47px;
+    height: 47px;
+    background: red;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+
+}
+
+.eilute1-2 {
+    display: inline-block;
+    width: 50px;
+    height: 47px;
+    background: red;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
+.eilute1-3 {
+    display: inline-block;
+    width: 47px;
+    height: 50px;
+    background: blue;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
+.eilute2-1 {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
+.eilute2-2 {
+    display: inline-block;
+    width: 44px;
+    height: 47px;
+    background: grey;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
+.eilute2-3 {
+    display: inline-block;
+    width: 47px;
+    height: 47px;
+    background: blue;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
+.eilute3-1 {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
+.eilute3-2 {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    border-bottom: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
+.eilute3-3 {
+    display: inline-block;
+    width: 44px;
+    height: 50px;
+    background: yellow;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    margin-right: -4px;
+    margin-top: -4px;
+}
