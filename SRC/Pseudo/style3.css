@@ -1,0 +1,15 @@
+a:visited {
+    color: teal;
+}
+input[type=text] {
+    background:red;
+}
+input[type=number] {
+    background: green;
+}
+input[type=email] {
+    background: yellow;
+}
+a:hover {
+    cursor: pointer;
+}

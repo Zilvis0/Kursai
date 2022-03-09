@@ -1,0 +1,23 @@
+.parent {
+    width: 200px;
+    height: 200px;
+    background: teal;
+    position: relative;
+}
+
+.child {
+
+    width:75px;
+    height:75px;
+    background: aliceblue;
+    position: absolute;
+    top: 33%;
+    left: 33%;
+    bottom: 33%;
+    right: 33%;
+
+   
+   
+    /* translate: (-50%, -50%); */
+
+}

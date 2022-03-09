@@ -1,0 +1,26 @@
+div {
+    background: red;
+}
+
+div div {
+    background: green;
+}
+
+div div div {
+    background: cyan;
+}
+
+.kubas, .staciakampis {
+    width: 50px;
+    height: 50px;
+    background: green;
+    margin-bottom: 10px;
+}
+
+.staciakampis {
+    width: 70px;
+}
+
+.kubas {
+    border: solid #354;
+}
