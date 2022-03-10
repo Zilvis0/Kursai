@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-side {
+    margin-left: 57px;
+    margin-top: 53px;
+}
+
+
+.right-side {
+    justify-content: right;
+}
+
+nav {  
+}
+
+a {
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: #3d2514;
+    font-family: "Bebas Neue" bold;
+    text-transform: uppercase;
+}
