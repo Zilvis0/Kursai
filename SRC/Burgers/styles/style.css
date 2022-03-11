@@ -9,13 +9,14 @@ header {
 }
 
 
-.right-side {
+/* .right-side {
     justify-content: right;
-}
+} */
 
-nav {  
+.Express {
+    display: flex;
+    justify-content: flex-end;
 }
-
 a {
     font-size: 22px;
     letter-spacing: 4px;
