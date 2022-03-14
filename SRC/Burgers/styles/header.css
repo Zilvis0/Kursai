@@ -1,0 +1,41 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    background: url(../assets/Landing\ Background.png);
+    padding-bottom: 78px;
+   
+}
+
+.left-side {
+    padding-left: 57px;
+    padding-top: 53px;
+}
+
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 54px;
+
+}
+
+.Express {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 54px;
+    margin-bottom: 27px;
+    font-size: 17px;
+    color: #3d2514;
+    font-weight: 700;
+    font-family: "Montserrat";
+    text-align: right;
+}
+
+a {
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: #3d2514;
+    font-family: "Bebas Neue" bold;
+    text-transform: uppercase;
+}
