@@ -1,0 +1,74 @@
+.burger-info {
+    
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 202px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.always-tasty-burger button {
+    font-family: "Bebas Neue", cursive;
+    font-size: 25px;
+    line-height: 1;
+    color: #3d2514;
+    width: 218px;
+    background-color: #ffc045;
+    padding: 12px 20px 11px;
+    margin-bottom: 38px;
+}
+
+.always-tasty-burger h2 {
+    font-size: 50px;
+    color: #3d2514;
+    font-family: "Alfa Slab One", cursive;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+.always-tasty-burger p{
+    font-size: 17px;
+    line-height: 1.5;
+    color: #3d2514;
+    text-align: center;
+    font-family: "Monserrat" sans-serif;
+    margin-bottom: 24px;
+}
+
+
+
+/* .always-tasty-burger table {
+    text-align: center;
+
+}
+
+.always-tasty-burger th {
+    font-size: 38px;
+    color: #3d2514;
+    font-weight: 700;
+    font-family: "Bebas Neue";
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 71px;
+    padding-bottom: 15px;
+
+}
+.always-tasty-burger td {
+    width: 367px;
+    height: 51px;
+    font-size: 17px;
+    color: #3d2514;
+    font-weight: 400;
+    font-family: "Montserrat";
+    
+}
+
+.always-tasty-burger table button {
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 400;
+    font-family: "Alfa Slab One";
+    background-color: #bf2222;
+    width: 195px;
+    height: 57px;
+    margin-top: 42px;
+} */

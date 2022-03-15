@@ -1,0 +1,51 @@
+.Three-burgers {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+}
+
+.single-burger {
+
+    text-align: center;
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.single-burger img {
+    max-width: 100%;
+}
+
+.single-burger h4 {
+    font-size: 38px;
+    color: #3d2514;
+    font-weight: 700;
+    font-family: "Bebas Neue";
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 71px;
+    padding-bottom: 15px;
+}
+
+.single-burger p {
+    width: 367px;
+    height: 51px;
+    font-size: 17px;
+    color: #3d2514;
+    font-weight: 400;
+    font-family: "Montserrat";
+}
+
+.single-burger button {
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 400;
+    font-family: "Alfa Slab One";
+    background-color: #bf2222;
+    width: 195px;
+    height: 57px;
+    margin-top: 42px;
+}

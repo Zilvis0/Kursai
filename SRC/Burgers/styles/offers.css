@@ -23,6 +23,10 @@ width: 596px;
 height: 420px;
 }
 
+.two-cards .card .heading h2 {
+    width: 27%;
+}
+
 
 .card {
     width: 596px;
@@ -71,6 +75,7 @@ padding-left: 20px;
 .heading h2 {
     font-size: 35px;
     color: #fff;
+  
 
 }
 .heading h4 {
@@ -78,3 +83,4 @@ padding-left: 20px;
     color: #fff;
 
 }
+
