@@ -1,13 +1,70 @@
 .landing {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 78px;
     padding-bottom: 80px;
     background: url(../assets/Landing\ Background.png);
 }
 
+.left-landing {
+
+}
+
+.dotted-text {
+    font-size: 24px;
+    color: #3d2514;
+    font-weight: 400;
+    font-family: "Bebas Neue";
+    border: 2px dashed #3d2514;
+    margin-left: 61px;
+    margin-bottom: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 113px;
+}
+
+.Burger-text {
+    font-size: 114px;
+    color: #3d2514;
+    font-weight: 400;
+    font-family: "Alfa Slab One";
+    filter: drop-shadow(4px 5px 0px #fee8bc);
+    margin-left: 61px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.Week-text {
+    font-size: 56px;
+    color: #3d2514;
+    font-weight: 400;
+    font-family: "Alfa Slab One";
+    filter: drop-shadow(4px 5px 0px #fee8bc);
+    margin-left: 61px;
+    text-transform: uppercase;
+}
+
+
+
 .burger-container {
     position: relative;
+    z-index: 1;
+}
+
+.glow {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(50px, 50px);
+    box-shadow: 50px 32px 89px 301px rgb(255 223 158 / 80%);
+    z-index: -1;
+    left: 250px;
+    top: 200px;
 }
 
 .circle {
@@ -20,18 +77,10 @@
     border-radius: 50%;
     background: #bf2222;
 
-}
-
-.glow {
-    width: 1px;
-    height: 1px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(50px, 50px);
-    box-shadow: 5px, 5px, 41px, 22px, #fcfcfc;
 
 }
+
+
 
 .price-top {
     display: flex;

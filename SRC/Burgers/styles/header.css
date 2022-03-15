@@ -23,8 +23,8 @@ header {
 .Express {
     display: flex;
     justify-content: flex-end;
-    padding-top: 54px;
-    margin-bottom: 27px;
+    padding-top: 57px;
+    margin-bottom: 28px;
     font-size: 17px;
     color: #3d2514;
     font-weight: 700;
@@ -32,10 +32,16 @@ header {
     text-align: right;
 }
 
+.Express span {
+    padding-left: 10px;
+}
+
 a {
-    font-size: 22px;
+    font-size: 21px;
     letter-spacing: 4px;
     color: #3d2514;
-    font-family: "Bebas Neue" bold;
+    font-family: "Bebas Neue";
+    font-weight: 700;
     text-transform: uppercase;
+    padding-left: 57px;
 }
