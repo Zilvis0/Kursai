@@ -1,5 +1,5 @@
 .Three-burgers {
-    margin: auto;
+    margin: 0px 96px 0px 26px;
     display: flex;
     justify-content: space-between;
     max-width: 1440px;
@@ -25,9 +25,9 @@
     font-weight: 700;
     font-family: "Bebas Neue";
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 23px;
     margin-top: 71px;
-    padding-bottom: 15px;
+    
 }
 
 .single-burger p {
@@ -47,5 +47,5 @@
     background-color: #bf2222;
     width: 195px;
     height: 57px;
-    margin-top: 42px;
+    margin-top: 72px;
 }
