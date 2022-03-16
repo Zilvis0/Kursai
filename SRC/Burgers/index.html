@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" href="./styles/events.css">
 
+    <link rel="stylesheet" href="./styles/reservation.css">
 
 
 
@@ -249,21 +250,58 @@
             <div class="events-left">
                 <h4>Discover</h4>
                 <h2>Upcoming events</h2>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
                     classical
                     Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
                     Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
                 </p>
-                <div class="dots">
-                    <img src="./assets/Ellipse.png">
-                    <img src="./assets/Ellipse (1).png">
-                    <img src="./assets/Ellipse (1).png">
-                </div>
+
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
             <div class="events-right">
                 <img src="./assets/Burger with fries.png">
             </div>
         </div>
+    </section>
+
+    <section class="reservation">
+        <img class="left" src="./assets/Bottle with burger.png">
+        <h1>Reservation</h1>
+        <h2>Book your table</h2>
+        <form>
+            <div>
+                <label for="Name">
+                    <input placeholder="Name" for="Name" type="text" required>
+                </label>
+
+                <label for="Email">
+                    <input placeholder="Email" for="Email" type="email" required>
+                </label>
+            </div>
+            <div>
+                <label for="Date">
+                    <input placeholder="Date" for="Date" type="date" required>
+                </label>
+
+                <label>
+                    <input placeholder="Time" type="time" required>
+                </label>
+            </div>
+            <div>
+                <label for="People">
+                    <input placeholder="People" for="People" type="text" required maxlength="2">
+                </label>
+
+                <button type="submit">Find a table</button>
+            </div>
+        </form>
+        <img class="right" src="./assets/Half burger.png">
+
     </section>
 
 </body>

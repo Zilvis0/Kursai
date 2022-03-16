@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     padding: 0px 73px;
-    margin-top: 130px;
+    margin-top: 65px;
 }
 
 .events-box {
@@ -15,7 +15,6 @@
     padding: 26px 21px;
     filter: drop-shadow(18.656px 24.758px 21.5px rgba(0,0,0,0.17));
     background-color: #ffffff;
-    border: 2px solid black;
     padding-left: 60px;
     padding-top: 60px;
    
@@ -24,6 +23,7 @@
 
 .events-left {
 margin-right: 45px;
+position: relative;
 }
 
 .events-left h4 {
@@ -33,6 +33,7 @@ margin-right: 45px;
     font-weight: 700;
     font-family: "Bebas Neue";
     margin-bottom: 12px;
+    text-transform: uppercase;
     }
 
 .events-left h2{
@@ -41,6 +42,7 @@ margin-right: 45px;
     font-weight: 400;
     font-family: "Alfa Slab One";
     margin-bottom: 44px;
+    text-transform: uppercase;
 }
 
 .events-left p {
@@ -50,15 +52,32 @@ margin-right: 45px;
     color: #3d3d3d;
     font-weight: 400;
     font-family: "Montserrat";
-    margin-bottom: 92px;
 }
 
-.events-left .dots{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
+.events-left ul{
+    position: absolute;
+    bottom: 35px;
 }
+
+.events-left li {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #dcdcdc;
+    margin-right: 7px;
+    
+}
+
+.events-left li:first-of-type {
+    background-color: #ffc045;
+}
+
+.events-left li:hover {
+    background-color: #ffc045;
+    border: 1px solid #df970b;
+}
+
 .events-box .events-right {
     display: flex;
     flex: 0 0 auto;

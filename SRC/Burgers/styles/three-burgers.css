@@ -1,8 +1,9 @@
 .Three-burgers {
-    margin: 0px 96px 0px 26px;
+    margin: 0px 96px 65px 26px;
     display: flex;
     justify-content: space-between;
     max-width: 1440px;
+    padding-bottom: 65px;
 }
 
 .single-burger {
