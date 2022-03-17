@@ -1,0 +1,86 @@
+.contacts {
+    display: flex;
+    justify-content: space-between;
+max-width: 1440px;
+margin-bottom: 66px;
+}
+
+article {
+    display: flex;
+    margin: 0px 57px;
+    background: url(../assets/Contacts-background.png);
+    width: 1326px;
+    height: 525px;
+}
+
+.contacts .left {
+    width: 50%;
+    height: 525px;
+  position: relative;
+    margin-left: 43px;
+}
+
+.contacts .left img{
+    margin-top: 84px;
+    margin-bottom: 48px;
+}
+.contacts .left p{
+    width: 520px;
+    height: 106px;
+    font-size: 17px;
+    color: #ffffff;
+    font-family: "Montserrat";
+
+}
+
+.contacts .left .company{
+    position: absolute;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 400;
+    font-family: "Bebas Neue";
+    bottom: 31px;
+}
+
+
+.contacts .right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 525px;
+
+}
+
+.contacts li {
+    margin-bottom: 17px;
+}
+
+.contacts li img {
+ margin-right: 34px;
+}
+
+.contacts .right .gps{
+    font-size: 21px;
+    line-height: 1.5;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Bebas Neue";
+}
+
+.contacts .right .email{
+    font-size: 21px;
+line-height: 1.5;
+color: #ffffff;
+font-weight: 700;
+font-family: "Bebas Neue";
+
+}
+
+.contacts .right .logos{
+    position: absolute;
+    bottom: 22px;
+    right: 30px;
+}

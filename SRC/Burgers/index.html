@@ -16,13 +16,13 @@
         href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Montserrat:wght@700&display=swap">
 
 
+    <link rel="stylesheet" href="./styles/main-style.css">
+
     <link rel="stylesheet" href="./styles/header.css">
 
     <link rel="stylesheet" href="./styles/landing.css">
 
     <link rel="stylesheet" href="./styles/offers.css">
-
-    <!-- <link rel="stylesheet" href="./styles/offers2budas.css"> -->
 
     <link rel="stylesheet" href="./styles/options.css">
 
@@ -31,6 +31,10 @@
     <link rel="stylesheet" href="./styles/events.css">
 
     <link rel="stylesheet" href="./styles/reservation.css">
+
+    <link rel="stylesheet" href="./styles/contacts.css">
+
+
 
 
 
@@ -116,9 +120,7 @@
             <div class="card first">
                 <div class="heading">
                     <h4>Try it today</h4>
-                    <h2>
-                        <div>More Fun More Taste</div>
-                    </h2>
+                    <h2>More Fun More Taste</h2>
                 </div>
 
 
@@ -133,41 +135,7 @@
 
         </div>
     </section>
-    <!-- 
-    <section class="offers2">
-        <div class="lefr-side-burger relative">
-            <img src="./assets/Big card.png">
-            <div class="burger-headings">
-                <h4>Try it today</h4>
-                <h2>
-                    <div>More Fun</div>
-                    <div> More Taste</div>
-                </h2>
-            </div>
-        </div>
-        <div class="right-side-burgers">
-            <div>
-                <img src="./assets/small card 1.png">
-                <div>
-                    <h4>Try it today</h4>
-                    <h2>
-                        <div>More Fun</div>
-                        <div> More Taste</div>
-                    </h2>
-                </div>
-            </div>
-            <div>
-                <img src="./assets/small card 2.png">
-                <div>
-                    <h4>Try it today</h4>
-                    <h2>
-                        <div>More Fun</div>
-                        <div> More Taste</div>
-                    </h2>
-                </div>
-            </div>
-        </div>
-    </section> -->
+
 
     <section class="always-tasty-burger">
         <div class="burger-info">
@@ -214,37 +182,6 @@
         </div>
     </section>
 
-    <!-- <table>
-            <tr>
-                <td><img src="./assets/Option-1.png"></td>
-                <td><img src="./assets/Option-2.png"></td>
-                <td><img src="./assets/Option-1.png"></td>
-            </tr>
-            <tr>
-                <th>Lorem Ipsum Dolor</th>
-                <th>Lorem Ipsum Dolor</th>
-                <th>Lorem Ipsum Dolor</th>
-
-            </tr>
-            <tr>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy
-                </td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy
-                </td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy
-                </td>
-            </tr>
-            <tr>
-                <td><button>order now</button></td>
-                <td><button>order now</button></td>
-                <td><button>order now</button></td>
-            </tr>
-        </table>
-    </section> -->
-
     <section class="events">
         <div class="events-box">
             <div class="events-left">
@@ -284,12 +221,12 @@
                 </label>
             </div>
             <div>
-                <label for="Date">
-                    <input placeholder="Date" for="Date" type="date" required>
+                <label>
+                    <input placeholder="Date" type="text" onfocus="this.type='date'" onblur="this.type='text'" required>
                 </label>
 
                 <label>
-                    <input placeholder="Time" type="time" required>
+                    <input placeholder="Time" type="text" onfocus="this.type='time'" onblur="this.type='text'" required>
                 </label>
             </div>
             <div>
@@ -300,7 +237,42 @@
                 <button type="submit">Find a table</button>
             </div>
         </form>
-        <img class="right" src="./assets/Half burger.png">
+        <img class="right" src="./assets/Burger be shadow.png">
+
+    </section>
+
+    <section class="contacts">
+        <article>
+            <div class="left">
+                <img src="./assets/Burger logo.png">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A maxime, dolorum temporibus nemo cum
+                    voluptates repudiandae qui, quasi, ab doloribus et quas accusantium error modi libero repellat culpa
+                    eum facere voluptatem aperiam? Illum, quisquam perferendis dolore in ipsa tenetur magnam obcaecati,
+                    culpa mollitia quis officia iusto possimus tempore exercitationem. Explicabo.
+                </p>
+                <div class="company">Lorem ipsum dolor sit amet.</div>
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li class="gps">
+                        <img src="./assets/Location Icon.png">
+                        Lorem ipsum dolor sit amet consectetur.
+                    </li>
+                    <li class="email">
+                        <img src="./assets/Email.png">
+                        Lorem@ipsum dolor.com
+                    </li>
+                </ul>
+                <div class="logos">
+                    <img src="./assets/Instagram.png">
+                    <img src="./assets/Facebook.png">
+                    <img src="./assets/Twitter.png">
+                    <img src="./assets/WhatsApp.png">
+                </div>
+            </div>
+        </article>
 
     </section>
 

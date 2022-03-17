@@ -6,7 +6,8 @@
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    margin-bottom: 170px;
+    padding-bottom: 170px;
+    overflow: hidden;
 }
 
 .reservation h1{
@@ -37,6 +38,7 @@
     background-color: rgba(235,174,76,0);
     border: 1px solid #bebebe;
     margin: 13px;
+    padding: 25px;
 }
 
 .reservation input::placeholder{
@@ -71,6 +73,8 @@ top: 50px;
 .reservation img:last-of-type {
     top: unset;
     left: unset;
-    right: -380px;
-    bottom: -300px;
+    right: -160px;
+    bottom: 24px;
+    overflow: hidden;
+    filter: drop-shadow(30px 10px 4px #cfcfcf);
 }
