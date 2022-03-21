@@ -1,0 +1,38 @@
+.header {
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue;
+    padding: 54px 56px;
+}
+
+.header .top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.header img{
+    margin-right: 10px;
+}
+
+.header a {
+    font-size: 21px;
+    letter-spacing: 4px;
+    color: #3d2514;
+    font-weight: 700;
+    font-family: "Bebas Neue";
+    margin-left: 58px;
+}
+
+.header span {
+    font-family: "Monserrat" sans-serif;
+    font-size: 17px;
+    color: #3d2514;
+    font-weight: 700;
+    font-family: "Montserrat";
+    text-align: right;
+}
