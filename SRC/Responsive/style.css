@@ -1,75 +1,47 @@
-body {
-    box-shadow: 0 0 2px;
+header {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 700;
-    padding: 25px;
-
 }
 
-nav {
+Button {
     display: flex;
-justify-content: center;
-align-items: center;
-}
-
-nav {
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    background: rgb(68, 168, 175)
 }
-
-button {
-
-    display: block;
-    border: solid 2px rgb(0, 0, 0);
-}
-
 
 ul {
-    display: none;
+    display: none;  
 }
 
-button:focus nav ul {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+li {
+    background: rgb(68, 168, 175);
+    padding: 24px;
+    box-shadow: 10px 15px 19px -6px cyan;
+    border-bottom: solid 1px teal;
+    border-right: solid 1px teal;
 }
 
-button:focus-within nav ul {
-    display: flex;
+button:focus ul {
+    display: block;
 }
 
-@media (min-width: 375px) {
-    
+button:focus-within ul {
+    display: block;
+}
 
-    button {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
+@media (min-width:768px) {
+    svg {
+        display:none;
     }
-
-    nav {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-    
 
     ul {
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
     }
-    svg {
-        display: none;
-    }
 
-    body {
-        display: block;
-        margin: auto;
+    button {
+       margin: auto;
     }
 }
-
