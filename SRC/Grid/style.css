@@ -1,0 +1,135 @@
+[class ^="box-"] {
+    display: grid;
+    place-items: center;
+    border: 3px solid red;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 30px;
+    display: grid;
+    height: 100vh;
+    grid-gap: 10px;
+    grid-template-areas:
+        "header header header header"
+        "du du du du"
+        "trys trys trys trys"
+        "keturi keturi keturi keturi"
+        "penki penki penki penki"
+        "footer footer footer footer";
+
+
+    /* grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr 2fr 1fr; */
+}
+
+
+
+/* .box-2, .box-5 {
+    grid-row: 2/6;
+}
+.box-4{
+grid-row: 3/6;
+}
+
+.box-5 {
+    grid-column-start: 3;
+}
+
+.box-1, .box-6 {
+    grid-column: 1/4;
+} */
+
+
+@media(min-width:768px) {
+    body {
+        grid-template-areas:
+            "header header header header"
+            "du trys trys trys"
+            "du keturi keturi keturi"
+            "du penki penki penki"
+            "footer footer footer footer";
+    }
+}
+
+@media(min-width:1024px) {
+    body {
+        grid-template-areas:
+            "header header header header"
+            "du trys trys penki"
+            "du keturi keturi penki"
+            "du keturi keturi penki"
+            "du keturi keturi penki"
+            "footer footer footer footer";
+    }
+}
+
+.box-1 {
+    grid-area: header;
+}
+
+.box-2 {
+    grid-area: du;
+}
+
+.box-3 {
+    grid-area: trys;
+}
+
+.box-4 {
+    grid-area: keturi;
+}
+
+.box-5 {
+    grid-area: penki;
+}
+
+.box-6 {
+    grid-area: footer;
+}
+
+
+/* Kubo css */
+
+
+body {
+    width: 500px;
+    height: 500px;
+
+    display: grid;
+    grid-template-areas:
+        "cb1 cb1 cb2"
+        "cb3 cb4 cb2"
+        "cb3 cb5 cb5";
+}
+
+[class ^="cube-"] {
+    display: grid;
+    place-items: center;
+    border: 3px solid black;
+}
+
+.cube-1 {
+    grid-area: cb1;
+    background-color: aquamarine;
+}
+
+.cube-2 {
+    grid-area: cb2;
+    background-color: teal;
+}
+
+.cube-3 {
+    grid-area: cb3;
+    background-color: aqua;
+}
+
+.cube-4 {
+    grid-area: cb4;
+    background-color: azure;
+}
+
+.cube-5 {
+    grid-area: cb5;
+    background-color: skyblue;
+}
