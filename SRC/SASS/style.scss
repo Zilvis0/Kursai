@@ -1,0 +1,31 @@
+@import "theme";
+@import "mixin";
+
+
+div {
+    @include cube;
+    background: $bg-color;
+
+    div {
+        @include cube(75px, 25px);
+        background: teal;
+
+
+        div {
+            @include cube(50px, 12px);
+            background-color: cadetblue;
+
+
+        }
+    }
+}
+
+
+
+
+.flex {
+    width: 200px;
+    height: 100px;
+    background-color: dodgerblue;
+    @include flex-layout(flex-end, flex-end);
+}

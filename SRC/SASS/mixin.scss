@@ -1,0 +1,11 @@
+@mixin cube($width:100px, $height:50px) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex-layout ($justcont:center, $aliite:center) {
+    display: flex;
+    justify-content: $justcont;
+    align-items: $aliite;
+
+}
