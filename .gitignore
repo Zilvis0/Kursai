@@ -1,2 +1,7 @@
 **/SASS/*.css
 **/SASS/*.map
+*.zip
+*.psd
+
+**/Animations/*.css
+**/Animations/*.map

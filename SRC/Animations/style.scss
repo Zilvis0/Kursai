@@ -1,0 +1,74 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trans {
+    position: relative;
+    border: 3px solid brown;
+
+    ul {
+        position: absolute;
+        top: -650%;
+        transition: top 300ms ease-in;
+    }
+
+    &:hover {
+        ul {
+            top: 250%;
+        }
+    }
+}
+
+
+
+
+
+
+.anime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: anime 2s linear infinite;
+
+    div {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: red;
+    }
+}
+
+@keyframes anime {
+    0% {
+        width: 100px;
+        height: 100px;
+        background-color: whitesmoke;
+        border: 2px #fff dashed;
+        border-right: 4px solid red;
+        transform: rotate(0deg);
+    }
+
+    50% {
+
+        width: 200px;
+        height: 200px;
+        background-color: grey;
+        border: 2px #fff dashed;
+        border-right: 4px solid red;
+        transform: rotate(180deg);
+    }
+
+    100% {
+        width: 100px;
+        height: 100px;
+        background-color: whitesmoke;
+        border: 2px #fff dashed;
+        border-right: 4px solid red;
+        transform: rotate(360deg);
+    }
+}
