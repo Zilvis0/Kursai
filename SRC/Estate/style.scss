@@ -1,0 +1,12 @@
+@import "./_theme.scss";
+@import "./_header.scss";
+@import "./_landing.scss";
+
+
+body {
+    max-width: 1920px;
+    display: grid;
+    height: 100vh;
+    padding: 24px;
+    font-family: $font;
+}
