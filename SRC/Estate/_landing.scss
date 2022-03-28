@@ -1,8 +1,8 @@
 .landing {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    max-width: 1920px;
+    max-width: 1160px;
 
     .landing__left {
         z-index: 1;
@@ -10,80 +10,109 @@
         height: 630px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: flex-start;
 
-        h2 {
-            text-transform: capitalize;
-            width: 576px;
-            height: 139px;
-            font-size: 60px;
-            letter-spacing: -2px;
-            color: $textclr;
-            font-weight: 600;
-            font-family: $font;
-        }
+        .text-wrapper {
 
-        .input-button {
-            width: 480px;
-            height: 71px;
-            margin-top: 48px;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
+            margin: auto;
 
-            input {
-                width: 480px;
-                height: 70px;
-                font-size: 18px;
-                letter-spacing: 0px;
+            h2 {
+                text-transform: capitalize;
+                width: 576px;
+                height: 139px;
+                font-size: 60px;
+                letter-spacing: -2px;
                 color: $textclr;
-                font-weight: 400;
+                font-weight: 600;
                 font-family: $font;
-                border: none;
-
-                &::placeholder {
-                    font-size: 15px;
-                    letter-spacing: 0px;
-                    color: #919eb1;
-
-                }
-
-                &:hover {
-                    border: 1px solid gray;
-                    box-shadow: 10px 10px 28px -12px rgba(119, 107, 107, 0.75);
-
-                }
             }
 
-            button {
-                width: 115px;
-                height: 70px;
-                border-radius: 5px;
-                background-color: #ffcc01;
+            .input-button {
+                width: 480px;
+                height: 71px;
+                margin-top: 48px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+
+                input {
+                    width: 480px;
+                    height: 70px;
+                    font-size: 18px;
+                    letter-spacing: 0px;
+                    color: $textclr;
+                    font-weight: 400;
+                    font-family: $font;
+                    border: none;
+
+                    &::placeholder {
+                        font-size: 15px;
+                        letter-spacing: 0px;
+                        color: #919eb1;
+
+                    }
+
+                    &:hover {
+                        border: 1px solid gray;
+                        box-shadow: 10px 10px 28px -12px rgba(119, 107, 107, 0.75);
+                    }
+
+                    &:focus {
+                        border: none;
+                    }
+                }
+
+                button {
+                    width: 115px;
+                    height: 70px;
+                    border-radius: 5px;
+                    background-color: #ffcc01;
+                }
             }
         }
 
         .scroll {
-            display: flex;
-            flex-direction: column;
+            font-size: 12px;
+            letter-spacing: 0px;
+            color: #919eb1;
+            font-weight: 500;
+            font-family: $font;
+            margin-bottom: 24px;
 
             h4 {
-                rotate: 90deg;
-            }
-
-
-            img {
-                width: 13px;
-                height: 30px;
+                transform: rotate(-90deg);
             }
         }
     }
+}
 
-    .landing__right {
-        height: 630px;
-        width: 960px;
-        background-color: #96bece;
+.landing__right {
+    height: 630px;
+    width: 960px;
+    background-color: #96bece;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 290px;
+        height: 80px;
+        background-color: #ffcc01;
+        font-size: 18px;
+        letter-spacing: 0px;
+        color: $textclr;
+        font-weight: 600;
+        font-family: "Montserrat";
+        padding-top: 32px;
+        padding-bottom: 34px;
+
+        img {
+            margin-right: 32px;
+        }
     }
 }
