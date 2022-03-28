@@ -1,0 +1,94 @@
+[class ^="box-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f5f4;
+    width: 200px;
+    height: 200px;
+    margin: 14px;
+
+}
+
+.Statistics {
+
+    max-width: 1160px;
+    margin-top: 144px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        h2 {
+            font-size: 40px;
+            width: 310px;
+            letter-spacing: -1px;
+            color: $textclr;
+            font-weight: 600;
+            font-family: $font;
+            margin-bottom: 55px;
+            line-height: 50px;
+        }
+
+        .text-box {
+            width: 540px;
+            height: 226px;
+
+            p {
+                font-size: 13px;
+                letter-spacing: 0px;
+                color: $textclr;
+                font-weight: 400;
+                font-family: $font;
+                line-height: 30px;
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+    .right {
+        display: grid;
+        grid-template-areas:
+            "box1 box2"
+            "box3 box4";
+
+
+        .box-1 {
+            grid-area: box1;
+        }
+
+        .box-2 {
+            grid-area: box2;
+        }
+
+        .box-3 {
+            grid-area: box3;
+        }
+
+        .box-4 {
+            grid-area: box4;
+        }
+
+        h3 {
+            font-size: 40px;
+            letter-spacing: -1px;
+            line-height: 50px;
+            color: $thmyellow;
+        }
+
+        h4 {
+            font-size: 14px;
+            letter-spacing: 0px;
+            line-height: 50px;
+            color: $textclr;
+            font-weight: 600;
+            font-family: $font;
+        }
+    }
+}
