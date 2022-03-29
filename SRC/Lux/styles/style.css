@@ -1,0 +1,21 @@
+.header {
+  max-width: 1440px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .header__left a {
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+
+
+/*# sourceMappingURL=style.css.map */

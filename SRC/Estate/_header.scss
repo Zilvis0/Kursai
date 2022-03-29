@@ -1,5 +1,5 @@
 header {
-    max-width: 1160px;
+    max-width: 1440px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,7 +16,7 @@ header {
 
 
     .header__center {
-        nav {
+        .header__center-menu-options {
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -40,7 +40,8 @@ header {
         align-items: center;
 
 
-        button {
+        .header__right-button {
+            display: none;
             width: 145px;
             height: 40px;
             border-radius: 5px;
@@ -48,8 +49,10 @@ header {
 
         }
 
-        div {
+        .header__right-text {
             margin-right: 22px;
+            display: none;
         }
+
     }
 }

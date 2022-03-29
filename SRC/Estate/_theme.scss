@@ -1,6 +1,18 @@
-$font: 'Montserrat', sans-serif;
+// Fonts
+
+
+$font: 'Montserrat',
+sans-serif;
+
+
+// Colors
+
+
 $textclr: #1f373d;
 $thmyellow: #ffcc01;
-li {
-    list-style: none;
-}
+
+
+// Breakpoints
+
+$tablet:768px;
+$desktop: 1024px;
