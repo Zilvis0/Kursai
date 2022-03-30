@@ -5,13 +5,14 @@
 $textcolor: #1f373d;
 $primary: #ffcc01;
 $secondary: #96bece;
+$bg-grey: #f6f5f4;
 
 
 // Font
 
 $fntfmly: "Montserrat",
 sans-serif;
-$fontsize: 15px;
+$fontsize: 13px;
 
 // Breakpoints
 
@@ -106,7 +107,7 @@ $desktop: 1024px;
                     border-bottom: 1px solid $textcolor;
                     text-align: center;
                     font-family: $fntfmly;
-                    font-size: 13px;
+                    font-size: $fontsize;
                     font-weight: 400;
                     color: $textcolor;
                 }
@@ -139,7 +140,7 @@ $desktop: 1024px;
                 font-family: $fntfmly;
                 color: $textcolor;
                 font-weight: 400;
-                font-size: 13px;
+                font-size: $fontsize;
                 margin-left: 100px;
             }
 
@@ -168,3 +169,195 @@ $desktop: 1024px;
 
 
 //Header end//
+
+//Landing Start//
+
+
+
+//Landing End/ 
+
+
+//Statistics Start// 
+
+.Statistics {
+
+    max-width: 1440px;
+    margin-top: 144px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media(min-width:$tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-left: 24px;
+
+        .Statistics__header {
+            font-size: 40px;
+            width: 310px;
+            letter-spacing: -1px;
+            color: $textcolor;
+            font-weight: 600;
+            font-family: $fntfmly;
+            margin-bottom: 55px;
+            line-height: 50px;
+        }
+
+        p {
+            font-size: $fontsize;
+            letter-spacing: 0px;
+            color: $textcolor;
+            font-weight: 400;
+            font-family: $fntfmly;
+            line-height: 30px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    }
+
+    @media (min-width:$tablet) {
+        .left {
+            align-items: center;
+        }
+    }
+
+    @media (min-width:$desktop) {
+        .left {
+            align-items: flex-start;
+        }
+    }
+
+
+    .right {
+
+        [class ^="box-"] {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f6f5f4;
+            width: 70vw;
+            height: 100px;
+            margin: 14px;
+        }
+
+        overflow: hidden;
+        display: grid;
+        grid-template-areas: "box1"
+        "box2"
+        "box3"
+        "box4";
+
+        @media (min-width:$tablet) {
+
+            [class ^="box-"] {
+                width: 200px;
+                height: 200px;
+            }
+
+            .box-1 {
+                animation: stats-medium 1s linear
+            }
+
+            .box-2 {
+                animation: stats-medium 1s linear 1s;
+            }
+
+            .box-3 {
+                animation: stats-medium 1s linear 2s;
+            }
+
+            .box-4 {
+                animation: stats-medium 1s linear 3s;
+            }
+        }
+
+        .box-1 {
+            grid-area: box1;
+
+            // animation: stats-mini-1 1s linear;
+            @media (min-width:$tablet) {
+                animation: stats-medium 1s linear;
+            }
+        }
+
+        .box-2 {
+            grid-area: box2;
+            // animation: stats-mini-2 1s linear;
+        }
+
+        .box-3 {
+            grid-area: box3;
+            // animation: stats-mini-1 1s linear;
+        }
+
+        .box-4 {
+            grid-area: box4;
+            // animation: stats-mini-2 1s linear;
+        }
+
+        h2 {
+            font-size: 40px;
+            letter-spacing: -1px;
+            line-height: 50px;
+            color: $primary;
+            font-family: $fntfmly;
+        }
+
+        h4 {
+            font-size: 14px;
+            letter-spacing: 0px;
+            line-height: 50px;
+            color: $textcolor;
+            font-weight: 600;
+            font-family: $fntfmly;
+        }
+    }
+
+    @media (min-width:$desktop) {
+        .right {
+            grid-template-areas:
+                "box1 box2"
+                "box3 box4";
+        }
+    }
+}
+
+@keyframes stats-mini-1 {
+    0% {
+        margin-left: -400px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes stats-mini-2 {
+    0% {
+        margin-right: -400px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes stats-medium {
+    0% {
+        margin-right: -200%;
+    }
+
+    100% {
+        margin-right: 200%;
+    }
+}
