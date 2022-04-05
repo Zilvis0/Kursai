@@ -1117,7 +1117,7 @@ $desktop: 1024px;
     .agents {
         margin: auto;
         max-width: 1124px;
-        padding: 24px;
+        padding: 50px 24px;
 
         &__top {
 
@@ -1235,3 +1235,150 @@ $desktop: 1024px;
         }
     }
 }
+
+//agents end
+
+//ads start
+
+.ads {
+    margin: auto;
+    max-width: 1124px;
+    padding: 50px 24px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 28px;
+
+    @media(min-width:$desktop) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .add-img {
+            background-color: #8da4be;
+            width: 100%;
+            height: 331px;
+
+            @media (min-width:$desktop) {
+                height: 100%;
+                width: 90%;
+            }
+        }
+
+        h3 {
+            font-size: 18px;
+            color: $textcolor;
+            font-weight: 600;
+            font-family: $fntfmly;
+            background-color: $primary;
+            padding: 31px 55px 34px;
+            white-space: nowrap;
+            text-align: center;
+            align-self: center;
+            margin-top: -50px;
+
+            img {
+                padding-right: 30px;
+            }
+        }
+    }
+
+    .ads__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: none;
+        width: 75%;
+
+        @media (min-width:$tablet) {
+            width: 66%;
+        }
+
+        @media (min-width:$desktop) {
+            padding: 80px 0px 90px 90px;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 25px;
+            letter-spacing: -1px;
+            line-height: 50px;
+            color: $textcolor;
+            font-weight: 600;
+            font-family: $fntfmly;
+
+        }
+
+        h4 {
+            font-size: 13px;
+            line-height: 30px;
+            color: $textcolor;
+            font-weight: 400;
+            font-family: $fntfmly;
+            padding: 36px 0px 40px;
+        }
+    }
+
+    .addtxt2 {
+        @media (min-width:$desktop) {
+            padding-left: 0px;
+            padding-right: 90px;
+            align-items: flex-end;
+
+            h4 {
+                text-align: end;
+            }
+        }
+    }
+
+    .addtxt3 {
+
+        padding-top: 40px;
+
+        button {
+            background-color: $textcolor;
+            padding: 31px 56px 36px;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: $fntfmly;
+            color: #fff;
+            border-radius: 5px;
+            border-bottom: 6px solid #122024;
+            transition: 0.1s;
+
+
+            &:hover {
+                cursor: pointer;
+                border-bottom: 3px solid #122024;
+                padding-top: 34px
+            }
+        }
+    }
+
+    .add1 {
+        .add-img {
+            width: 100%;
+        }
+    }
+
+    .add3 {
+        .add-img {
+            width: 100%;
+        }
+    }
+
+    .add2 {
+        h3 {
+            align-self: flex-end;
+        }
+    }
+}
+
+//adds end
+
+//footer start
