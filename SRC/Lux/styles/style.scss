@@ -1404,30 +1404,49 @@ footer {
 
             .footer__menu-options {
                 display: grid;
+                grid-auto-flow: column;
                 width: auto;
                 grid-template-columns: repeat(4, 1fr);
                 grid-template-rows: repeat(4, 1fr);
                 font-weight: 400;
                 font-family: $fntfmly;
-                font-size: 10px;
+                font-size: 9px;
                 justify-items: center;
-                gap: 0px 5px;
+                gap: 20px 10px;
+                white-space: nowrap;
+
+                &:hover {
+                    li {
+                        opacity: 1;
+                        transition: 2s;
+
+                    }
+                }
 
                 @media (min-width:$tablet) {
+                    grid-auto-flow: row;
                     grid-template-columns: repeat(4, 1fr);
                     grid-template-rows: repeat(4, 1fr);
                     justify-items: left;
-                    gap: 0px 120px;
+                    gap: 34px 120px;
                     font-size: 13px;
                 }
 
                 div {
                     color: #919eb1;
-                    padding-bottom: 34px;
+                    width: 100%;
+                    height: 100%;
                 }
 
                 li {
+                    opacity: 0;
                     color: #fff;
+                    width: 100%;
+                    height: 100%;
+
+                    @media (min-width:$tablet) {
+                        opacity: 1;
+                    }
                 }
             }
         }
