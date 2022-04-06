@@ -20,10 +20,11 @@
 
 .header .header__left .header__left--logo {
   font-size: 25px;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
+  letter-spacing: -1px;
 }
 
 .header .header__right--menu {
@@ -108,10 +109,11 @@
   padding: 10px;
   border-bottom: 1px solid #1f373d;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
   font-size: 13px;
-  font-weight: 400;
+  letter-spacing: 0px;
   color: #1f373d;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
 }
 
 .header .header__right--menu .header__right--button-wrapper .header__right--item-wrapper .header__right--item:hover {
@@ -161,10 +163,11 @@
 
 .header .header__right--menu .header__right--getting-started .header__right--join-text {
   display: none;
-  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 400;
-  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
   margin-left: 100px;
 }
 
@@ -228,10 +231,11 @@
   width: auto;
   height: 139px;
   font-size: 45px;
-  letter-spacing: -2px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+  letter-spacing: -2px;
   margin-left: 45px;
 }
 
@@ -541,11 +545,12 @@
 
 .Statistics .left .Statistics__header {
   font-size: 40px;
-  width: 310px;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+  width: 310px;
+  letter-spacing: -1px;
   margin-bottom: 55px;
   line-height: 50px;
 }
@@ -677,10 +682,10 @@
 .Statistics .right h4 {
   font-size: 14px;
   letter-spacing: 0px;
-  line-height: 50px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+  line-height: 50px;
 }
 
 @media (min-width: 1024px) {
@@ -795,11 +800,12 @@
       align-self: flex-start;
   width: 50%;
   font-size: 40px;
-  letter-spacing: -1px;
-  line-height: 50px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+  letter-spacing: -1px;
+  line-height: 50px;
   margin-bottom: 75px;
   margin-left: 36px;
 }
@@ -1180,17 +1186,19 @@
 .how__wrapper .how__cards .how__card-header h2 {
   white-space: nowrap;
   font-size: 40px;
-  letter-spacing: -1px;
-  line-height: 50px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+  letter-spacing: -1px;
+  line-height: 50px;
   margin-bottom: 36px;
 }
 
 .how__wrapper .how__cards .how__card-header p {
-  font-size: 13px;
   line-height: 30px;
+  font-size: 13px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
@@ -1228,8 +1236,10 @@
 }
 
 .how__wrapper .how__cards [class^="how__card--"] h2 {
-  font-size: 18px;
   line-height: 63px;
+  font-size: 18px;
+  letter-spacing: 0px;
+  color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   margin-left: 43px;
@@ -1237,16 +1247,20 @@
 
 .how__wrapper .how__cards [class^="how__card--"] p {
   max-width: 212px;
-  font-size: 13px;
   line-height: 30px;
+  font-size: 13px;
+  letter-spacing: 0px;
+  color: #1f373d;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
   margin-left: 70px;
 }
 
 .how__wrapper .how__cards [class^="how__card--"] button {
-  font-size: 13px;
   line-height: 30px;
+  font-size: 13px;
+  letter-spacing: 0px;
+  color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   background: none;
@@ -1325,9 +1339,10 @@
 }
 
 .services h1 {
-  font-size: 40px;
   letter-spacing: -1px;
   line-height: 50px;
+  font-size: 40px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -1336,8 +1351,9 @@
 .services h3 {
   width: 100%;
   height: 61px;
-  font-size: 13px;
   line-height: 30px;
+  font-size: 13px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
@@ -1401,8 +1417,11 @@
 }
 
 .services .content-wrapper .right .services__options {
-  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0px;
   color: #1f373d;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
 }
 
 .services .content-wrapper .right .services__options h2 {
@@ -1413,9 +1432,7 @@
 }
 
 .services .content-wrapper .right .services__options p {
-  font-size: 13px;
   line-height: 30px;
-  font-weight: 400;
   margin-top: 16px;
   margin-bottom: 33px;
 }
@@ -1436,20 +1453,22 @@
 
 .agents-wrapper .agents__top h1 {
   font-size: 40px;
-  letter-spacing: -1px;
-  line-height: 50px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+  letter-spacing: -1px;
+  line-height: 50px;
 }
 
 .agents-wrapper .agents__top p {
   width: 100%;
   font-size: 13px;
-  line-height: 30px;
+  letter-spacing: 0px;
   color: #1f373d;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  line-height: 30px;
   padding-top: 38px;
   padding-bottom: 33px;
 }
@@ -1549,13 +1568,14 @@
           align-items: flex-start;
   padding: 24px;
   font-size: 15px;
+  letter-spacing: 0px;
+  color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
 }
 
 .agents-wrapper .agents__cards .agents__card .card__footer .card__footer-left h2 {
   padding-bottom: 20px;
-  color: #1f373d;
 }
 
 .agents-wrapper .agents__cards .agents__card .card__footer .card__footer-left h3 {
@@ -1640,6 +1660,7 @@
 
 .ads .card-wrapper h3 {
   font-size: 18px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -1690,19 +1711,21 @@
 
 .ads .ads__text h2 {
   font-size: 25px;
-  letter-spacing: -1px;
-  line-height: 50px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+  letter-spacing: -1px;
+  line-height: 50px;
 }
 
 .ads .ads__text h4 {
   font-size: 13px;
-  line-height: 30px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
+  line-height: 30px;
   padding: 36px 0px 40px;
 }
 
@@ -1727,9 +1750,10 @@
   background-color: #1f373d;
   padding: 31px 56px 36px;
   font-size: 18px;
+  letter-spacing: 0px;
+  color: #fff;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  color: #fff;
   border-radius: 5px;
   border-bottom: 6px solid #122024;
   -webkit-transition: 0.1s;
@@ -1792,8 +1816,9 @@ footer .footer-wrapper .footer__top {
 }
 
 footer .footer-wrapper .footer__top-left {
-  font-size: 40px;
   letter-spacing: -1px;
+  font-size: 40px;
+  letter-spacing: 0px;
   color: #fff;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -1841,6 +1866,7 @@ footer .footer-wrapper .footer__top-right .footer__top-input input {
   width: 100%;
   border: none;
   font-size: 12px;
+  letter-spacing: 0px;
   color: #1f373d;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
@@ -1926,8 +1952,9 @@ footer .footer-wrapper .footer__bottom {
 
 footer .footer-wrapper .footer__bottom .logo {
   position: static;
-  font-size: 25px;
   letter-spacing: -1px;
+  font-size: 25px;
+  letter-spacing: 0px;
   color: #fff;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -1950,8 +1977,8 @@ footer .footer-wrapper .footer__bottom .logo {
 
 footer .footer-wrapper .footer__bottom .all-rights {
   position: static;
-  font-size: 14px;
   line-height: 21px;
+  font-size: 14px;
   color: #fff;
   font-weight: 400;
   font-family: 'Work Sans', sans-serif;
