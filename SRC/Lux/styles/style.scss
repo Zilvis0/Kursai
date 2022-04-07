@@ -16,7 +16,6 @@ $fontsmall: 13px;
 @mixin header($size: $fontsmall, $color: $textcolor, $weight: 400, $family: $fntfmly) {
 
     font-size: $size;
-    letter-spacing: 0px;
     color: $color;
     font-weight: $weight;
     font-family: $family;
@@ -174,19 +173,20 @@ $desktop: 1024px;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     max-width: 1124px;
     margin: auto;
     padding: 12px;
+    width: 100%;
+    height: auto;
 
     .landing__left {
         z-index: 1;
         width: 20%;
-        height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
+        align-self: center;
+        margin-top: 50px;
 
         .text-wrapper {
 
@@ -238,7 +238,6 @@ $desktop: 1024px;
 
                     &::placeholder {
                         font-size: 15px;
-                        letter-spacing: 0px;
                         color: #919eb1;
                     }
 
@@ -254,7 +253,7 @@ $desktop: 1024px;
 
                 button {
                     border-radius: 5px;
-                    padding: 29px 30px 34px 37px;
+                    padding: 30px 30px 35px 37px;
                     background-color: #ffcc01;
                     z-index: 1;
                     @include header (15px, $textcolor, 500, $fntfmly);
@@ -297,7 +296,6 @@ $desktop: 1024px;
                 justify-content: flex-start;
                 align-items: center;
                 font-size: 12px;
-                letter-spacing: 0px;
                 color: #919eb1;
                 font-weight: 500;
                 font-family: $fntfmly;
@@ -316,14 +314,14 @@ $desktop: 1024px;
     }
 
     .landing__right {
-        height: 60vh;
-        width: 100vw;
+        height: auto;
+        width: 100%;
         background-color: #96bece;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
-        margin-left: -150px;
+        padding-top: 80vh;
 
         @media(min-width:$tablet) {
             margin-left: 0px;
@@ -754,7 +752,6 @@ $desktop: 1024px;
 
                     &::placeholder {
                         font-size: 15px;
-                        letter-spacing: 0px;
                         color: #919eb1;
 
                     }
