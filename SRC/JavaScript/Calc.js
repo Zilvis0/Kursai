@@ -22,7 +22,7 @@ if (NumberArea==4) {
 }
 
 function AddNumber(number) {
-    if (Number(NumberArea.textContent)==0) {
+    if (Number(NumberArea.textContent)==0 && NumberArea.textContent !="0.") {
         NumberArea.textContent = number;
     } else {
     NumberArea.textContent += number;
@@ -79,4 +79,28 @@ if (Symbol == '+') {
         NumberArea.textContent = PrevNumber * Number(NumberArea.textContent)
     }
     AnswerArea.textContent = NumberArea.textContent
+}
+
+function SquareRoot() {
+    if (NumberArea.textContent==0) {
+        NumberArea.textContent = Math.sqrt(Number(AnswerArea.textContent))
+    } else {
+        NumberArea.textContent=Math.sqrt(Number(NumberArea.textContent))
+        AnswerArea.textContent = NumberArea.textContent
+    }
+}
+
+
+function AddDot() {
+    NumberArea.textContent = NumberArea.textContent + "."
+}
+
+function Rounding() {
+    NumberArea.textContent = Math.round(Number(NumberArea.textContent))
+}
+
+function ClearEverything() {
+    PrevNumber = 0
+    NumberArea.textContent = 0
+    AnswerArea.textContent = 0
 }
