@@ -14,52 +14,63 @@
 
 </head>
 
-<body>
+<body class="container-fluid bg-secondary d-flex justify-content-center flex-column align-content-center py-5">
 
-    <section class="container-fluid bg-dark">
+    <section class="container">
+        <small id="AnswerArea"
+            class="row d-flex align-content-center justify-content-end container p-3 text-muted bg-dark">
 
+        </small>
         <div id="NumberArea"
-            class="row border-bottom border-3 border-dark d-flex align-content-center justify-content-end container p-3 bg-secondary">
-
+            class="row border-bottom border-3 border-dark d-flex align-content-center text-light justify-content-end container p-3 bg-dark">
         </div>
 
     </section>
 
-    <section class="container-fluid bg-dark">
-        <div class="row container pb-0 bg-secondary justify-content-center">
+    <section class="container">
+        <div class="row container pb-0 bg-dark justify-content-center">
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(1)">1</button>
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(2)">2</button>
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(3)">3</button>
+            <button class="col-1 btn btn-outline-warning m-1" onclick="MathAction('/')"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-slash"
+                    viewBox="0 0 16 16">
+                    <path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg></button>
         </div>
     </section>
-    <section class="container-fluid bg-dark">
-        <div class="row container py-0 bg-secondary justify-content-center">
+    <section class="container">
+        <div class="row container py-0 bg-dark justify-content-center">
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(4)">4</button>
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(5)">5</button>
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(6)">6</button>
+            <button class="col-1 btn btn-outline-warning m-1" onclick="MathAction('*')"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-asterisk"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                </svg></button>
+
         </div>
     </section>
-    <section class="container-fluid bg-dark">
-        <div class="row container pt-0 bg-secondary justify-content-center">
+    <section class="container">
+        <div class="row container pt-0 bg-dark justify-content-center">
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(7)">7</button>
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(8)">8</button>
             <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(9)">9</button>
-        </div>
-    </section>
-    <section class="container-fluid bg-dark">
-        <div class="row container pt-0 p-3 bg-secondary justify-content-center">
-            <button class="col-1 btn btn-outline-warning m-1" onclick="Addition()"><svg
-                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>
-            </button>
-            <button class="col-1 btn btn-outline-warning m-1" onclick="Division()"><svg
+            <button class="col-1 btn btn-outline-warning m-1" onclick="MathAction('-')"><svg
                     xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash"
                     viewBox="0 0 16 16">
                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                 </svg></button>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row container pt-0 bg-dark justify-content-center">
+            <button class="col-1 btn btn-outline-warning m-1" onclick="Equals(true)">
+                =
+            </button>
+            <button class="col-1 btn btn-outline-warning p-2 m-1" onclick="AddNumber(0)">0</button>
             <button class="col-1 btn btn-outline-warning m-1" onclick="DeleteLast()"><svg
                     xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="bi bi-backspace" viewBox="0 0 16 16">
@@ -68,9 +79,12 @@
                     <path
                         d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z" />
                 </svg></button>
-
-            <button class="col-1 btn btn-outline-warning m-1" onclick="Equal()">
-                =
+            <button class="col-1 btn btn-outline-warning m-1" onclick="MathAction('+')"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
             </button>
         </div>
     </section>
