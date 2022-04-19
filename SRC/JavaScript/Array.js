@@ -9,29 +9,53 @@ let InputArea = document.getElementById("InputArea")
 // ToDo.innerHTML = ListToDo.join("<br>")
 // Done.innerHTML = ListDone.join("<br>")
 
-function TransferToDone() {
-    if (InputArea.value == 0) {
-        Done.innerHTML = ToDo.innerHTML
-        
-    } else {
-        ListToDo.push(InputArea.value)
-        UpdateList()
-        }
-        InputArea.value = ""
-   }
+// function TransferToDone() {
+//         ListDone = ListToDo.slice(0, 2)
+//         ListToDo = ListToDo.splice(2, 2) 
+//         UpdateList()
+// }
     
+function AddToDo() {
+    const value = InputArea.value
+    const isValueEmptyOrExisting = value = "" || ListToDo.includes(value)
 
-function UpdateList() {
-    // ToDo.innerHTML = ListToDo.join("<br>")
-    // Done.innerHTML = ListDone.join("<br>")
-
-    for (let index = 0; index < ListToDo.length; i++) {
-        ListToDo.innerHTML += `<div>${ListToDo[index]}</div>`
-    }
-    for (let index = 0; index < ListDone.length; i++) {
-        ListDone.innerHTML += ListDone[index]
+    if (!isValueEmptyOrExisting) {
+        ListToDo.push(value)
+        UpdateList()
     }
 
 }
+
+
+function UpdateList() {
+    ToDo.innerHTML = ""
+    Done.innerHTML = ""
+
+    for (let index = 0; index < ListToDo.length; index++){
+        const divElement = document.createElement("div")
+        divElement.textContent = ListToDo[index];
+        divElement.onclick = () => {
+            ListDone.push(ListToDo.splice(index, 1));
+            UpdateList()
+        }
+        ToDo.appendChild(divElement)
+    }
+    // for (let index = 0; index < ListDone.length; index++){
+    //     Done.innerHTML += `<div>${ListDone[index]}</div>`
+    // }
+    for (let index = 0; index < ListDone.length; index++){
+        const divElement = document.createElement("div")
+        divElement.textContent = ListDone[index];
+        divElement.onclick = () => {
+            ListToDo.push(ListDone.splice(index, 1));
+            UpdateList()
+        }
+        Done.appendChild(divElement)
+    }
+
+}
+
+UpdateList()
+
 
 // `<div>${ListDone[index]}</div>`
