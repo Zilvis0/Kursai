@@ -17,45 +17,70 @@ let InputArea = document.getElementById("InputArea")
     
 function AddToDo() {
     const value = InputArea.value
-    const isValueEmptyOrExisting = value = "" || ListToDo.includes(value)
+    const isValueEmptyOrExisting = value == "" || ListToDo.includes(value) || ListDone.includes(value)
 
     if (!isValueEmptyOrExisting) {
         ListToDo.push(value)
+        ListToDo.sort()
         UpdateList()
+        InputArea.value = ""
     }
-
 }
 
 
 function UpdateList() {
-    ToDo.innerHTML = ""
-    Done.innerHTML = ""
+ ToDo.innerHTML = ""
+ Done.innerHTML = ""
 
-    for (let index = 0; index < ListToDo.length; index++){
-        const divElement = document.createElement("div")
-        divElement.textContent = ListToDo[index];
-        divElement.onclick = () => {
-            ListDone.push(ListToDo.splice(index, 1));
-            UpdateList()
-        }
-        ToDo.appendChild(divElement)
-    }
-    // for (let index = 0; index < ListDone.length; index++){
-    //     Done.innerHTML += `<div>${ListDone[index]}</div>`
-    // }
-    for (let index = 0; index < ListDone.length; index++){
-        const divElement = document.createElement("div")
-        divElement.textContent = ListDone[index];
-        divElement.onclick = () => {
-            ListToDo.push(ListDone.splice(index, 1));
-            UpdateList()
-        }
-        Done.appendChild(divElement)
-    }
+ TransferItems(ListDone, ListToDo, Done)
+ TransferItems(ListToDo, ListDone, ToDo)
+}
 
+function TransferItems(fromArray, toArray, list){
+    for (let i = 0; i < fromArray.length; i++){
+        const divItem = document.createElement("div")
+        divItem.textContent = fromArray[i]
+        divItem.onclick = () => {
+        toArray.push(fromArray.splice(i, 1)[0])
+        toArray.sort()
+        UpdateList()
+        }
+    
+         list.appendChild(divItem)
+     }
 }
 
 UpdateList()
 
 
 // `<div>${ListDone[index]}</div>`
+
+const array = []
+
+for (let i = 0; i < 10; i++){
+    array.push(Math.floor(Math.random()*10)+1)
+}
+
+console.log(array)
+
+const filteredArray = []
+
+function filterArray() {
+    for (let shazam of array){
+        if (shazam >=5){
+            filteredArray.push(shazam)
+        }
+    }
+}
+
+filterArray()
+console.log("Filtered", filteredArray)
+
+const UpdatedArray = array.filter((kaboom) => kaboom <=5)
+console.log("Updated", UpdatedArray)
+
+const ReducedArray = UpdatedArray.reduce((sum, current) => sum + current)
+console.log("Reduced", ReducedArray)
+
+const someArray = filteredArray.some((wham) => wham > 1)
+console.log("Some", someArray)
