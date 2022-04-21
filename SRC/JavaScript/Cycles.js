@@ -88,20 +88,26 @@ function TableCreation() {
 TableCreation()
 
 const allHeight = characters.map((character=>Number(character.height))).reduce((sum, number)=>sum+number)
-
+const allMass   = characters.map((character=>Number(character.mass))).reduce((a, b)=>a+b)
 
 function BuildTotalRow() {
     const TableRow = document.createElement("tr")
+    const TableDataHeader = document.createElement("td")
+    TableDataHeader.textContent = "Total"
+    TableRow.appendChild(TableDataHeader)
+
     for (let key of keys){
         if (key=="height"){
-        const TableDataHeader = document.createElement("td")
-        const TableData = document.createElement("td")
-        TableDataHeader.textContent = "Total"
-        TableData.textContent = allHeight
-        TableRow.appendChild(TableDataHeader)
-        TableRow.appendChild(TableData)
+        const TableDataHeight = document.createElement("td")
+        TableDataHeight.textContent = allHeight
+        TableRow.appendChild(TableDataHeight)
         }
-    TableBody.appendChild(TableRow) 
+        if(key=="mass"){
+            const TableDataMass = document.createElement("td")
+            TableDataMass.textContent = allMass
+            TableRow.appendChild(TableDataMass)
+        }
+    TableBody.appendChild(TableRow)
     }
 }
 BuildTotalRow()
