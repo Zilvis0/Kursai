@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <table id="tableid" class="table">
+    <table class="table">
         <tr>
             <th>Name</th>
             <th>Height</th>
@@ -22,9 +22,18 @@
             <th>Gender</th>
         </tr>
     </table>
-    <table id="reversetable" class="table">
-        
+    <table id="tableid" class="table">
     </table>
+    <button class="btn" onclick="TableCreation(characters)">All</button>
+    <button class="btn" onclick="TableCreation(CharactersHeavierThan80)">Heavier Than 80</button>
+    <button class="btn" onclick="TableCreation(CharactersShorterThan180)">Shorter Than 180</button>
+    <button class="btn" onclick="TableCreation(BlueEyesWhiteDragon)">Blue Eyes</button>
+    <button class="btn" onclick="TableCreation(CharactersThatAreMale)">Male</button>
+    <button class="btn" onclick="TableCreation(SortingByName)">Name</button>
+    <button class="btn" onclick="TableCreation(SortingByHeight)">Height</button>
+    <button class="btn" onclick="TableCreation(SortingByMass)">Mass</button>
+    <button class="btn" onclick="TableCreation(SortingByEyes)">Eyes</button>
+    <button class="btn" onclick="TableCreation(SortingByGender)">Gender</button>
 </body>
 
 <script src="./Cycles.js"></script>
