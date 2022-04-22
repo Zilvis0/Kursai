@@ -76,13 +76,48 @@ const CharactersHeavierThan80 = characters.filter(character => character.mass > 
 const BlueEyesWhiteDragon = characters.filter(object=>object.eye_color==="blue")
 const CharactersThatAreMale = characters.filter(object=> object.gender === "male")
 
+// const SortingByName = characters.sort((a, b)=> a.name > b.name ? 1 : -1)
+// const SortingByHeight = characters.sort((a, b)=> a.height - b.height)
+// const SortingByMass = characters.sort((a, b)=> a.mass - b.mass)
+// const SortingByEyes = characters.sort((a, b)=> a.eye_color - b.eye_color)
+// const SortingByGender = characters.sort((a, b)=> (a.gender > b.gender ? 1 : -1))
+// const SortingByGender2 = characters.sort((a, b)=> (b.gender < a.gender ? 1 : -1))
 
+
+function Sorting(){
+    const SortingByName = characters.sort((a, b)=> a.name > b.name ? 1 : -1)
+    TableCreation(SortingByName)
+}
+
+function Sorting2() {
+    const SortingByHeight = characters.sort((a, b)=> a.height - b.height)
+    TableCreation(SortingByHeight)
+}
+function Sorting3() {
+ const SortingByMass = characters.sort((a, b)=> a.mass - b.mass)
+    TableCreation(SortingByMass)
+}
+function Sorting4() {
+    const SortingByEyes = characters.sort((a, b)=> a.eye_color - b.eye_color)
+    TableCreation(SortingByEyes)
+}
+function Sorting5() {
+    const SortingByGender = characters.sort((a, b)=> (a.gender > b.gender ? 1 : -1))
+    TableCreation(SortingByGender)
+}
+function Sorting6() {
+    const SortingByGender2 = characters.sort((a, b)=> (b.gender < a.gender ? 1 : -1))
+    TableCreation(SortingByGender2)
+}
 
 const Headersai = ["Name", "Height", "Mass", "Eye Color", "Gender"]
 
 const keys = Object.keys(characters[0])
 function TableCreation(value) {
     TableBody.innerHTML=""
+
+
+
     value.map((character) => {
         const TableRow = document.createElement("tr")
         for (let key of keys) {
@@ -169,30 +204,5 @@ const AreTheMaleTallerThan2m = characters.filter(object=>object.gender==="male")
 
 const AreThereCharsTallerThan170ButNotBrownEyes = characters.filter(object=>object.height>170).some(object=>object.eye_color!=="brown")
 
-
-// const SortingByName = 
-//     characters.sort(function(a, b) {
-//     let x = a.name.toLowerCase()
-//     let y = b.name.toLowerCase()
-//     if (x<y){return -1}
-//     if (x>y){return 1}
-//     return 0
-// })
-// const SortingByHeight = characters.sort((a, b)=> a.height - b.height)
-// const SortingByMass = characters.sort((a, b)=> b.mass - a.mass)
-// const SortingByEyes = characters.sort(function(a, b) {
-//     let x = a.eye_color.toLowerCase()
-//     let y = b.eye_color.toLowerCase()
-//     if (x<y){return -1}
-//     if (x>y){return 1}
-//     return 0
-// })
-// const SortingByGender = characters.sort(function(a, b) {
-//     let x = a.gender.toLowerCase()
-//     let y = b.gender.toLowerCase()
-//     if (x<y){return -1}
-//     if (x>y){return 1}
-//     return 0
-// })
 
 
