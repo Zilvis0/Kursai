@@ -15,21 +15,25 @@
 <body>
     <table class="table">
         <thead>
-            <th onclick="">Vardas</th>
-            <th onclick="">Pavarde</th>
-            <th onclick="">Amzius</th>
-            <th onclick="">Lytis</th>
-            <th onclick="">Hobis</th>
-            <th onclick="">Ugis</th>
-            <th onclick="">Programavimo igudis</th>
+            <th onclick="Sort('firstName')">Vardas</th>
+            <th onclick="Sort('lastName')">Pavardė</th>
+            <th onclick="Sort('age')">Amžius</th>
+            <th onclick="Sort('gender')">Lytis</th>
+            <th onclick="Sort('hobby')">Hobis</th>
+            <th onclick="Sort('height')">Ūgis</th>
+            <th onclick="Sort('programmingSkill')">Programavimo įgūdis</th>
         </thead>
         <tbody id="table">
 
         </tbody>
-    </table>
-</body>
-
-<script src="./Objects.js"></script>
-<script src="./Date.js"></script>
+        <button class="btn btn-outline-warning" onclick="Reducing('All')">All</button>
+        <button class="btn btn-outline-warning" onclick="Reducing('Males')">Males</button>
+        <button class="btn btn-outline-warning" onclick="Reducing('Females')">Females</button>
+        <button class="btn btn-outline-warning" onclick="Reducing('Youngsters')">Younger Than 30</button>
+        <button class="btn btn-outline-warning" onclick="Reducing('TallBois')">Taller Than 175</button>
+        <button class="btn btn-outline-warning" onclick="Reducing('!Hackers')">Programming Skill < 5</button> </table> </body> <script
+                src="./Objects.js">
+                </script>
+                <script src="./Date.js"></script>
 
 </html>
