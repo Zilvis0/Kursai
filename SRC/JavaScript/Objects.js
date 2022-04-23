@@ -85,6 +85,7 @@ function createTable(reductions) {
     TableBody.appendChild(tableRow)
     })
     maximumRow()
+    createNewMemberArea()
 }
 
 
@@ -148,7 +149,62 @@ function Reducing(value){
     }
 }
 
+let leButton = document.createElement("button")
+leButton.classList.add("send")
+function createNewMemberArea(){
+    const inputHeader = document.createElement("tr")
+    const inputFooter = document.createElement("tr")
+    inputFooter.classList.add("row")
+    const textHeader = document.createElement("h3")
+    textHeader.textContent = "Add a new Member"
+    inputHeader.appendChild(textHeader)
+    leButton.classList.add("btn", "p-2", "mt-2", "btn-outline-success")
+    leButton.textContent = "Submit"
+    inputFooter.appendChild(leButton)
+    const tableRow = document.createElement("tr")
+    for (let param of keys){
+        const tableData = document.createElement("td")
+        const inputArea = document.createElement("input")
+        inputArea.placeholder = param
+        inputArea.classList.add(param)
+        tableData.appendChild(inputArea)       
+        tableRow.appendChild(tableData)       
+    } 
+    TableBody.appendChild(inputHeader)
+    TableBody.appendChild(tableRow)
+    TableBody.appendChild(inputFooter)
+}
 
+// window.onload = function(){
+// function inputValue(x){
+//     return document.querySelector(x)
+// }
 
+// leButton = inputValue(".send")
+// leButton.addEventListener('click', createNewMember, false)
 
-createTable(group)
+// function createNewMember(){
+
+//     let addName = inputValue(".firsName")
+//     let addSurname = inputValue(".lastName")
+//     let addAge = inputValue(".age")
+//     let addGender = inputValue(".gender")
+//     let addHobby = inputValue(".hobby")
+//     let addHeight = inputValue(".height")
+//     let addProgrammingSkill = inputValue(".programmingSkill")
+
+//     let newMember = {
+//         firstName: addName.value,
+//         lastName: addSurname.value,
+//         age: addAge.value,
+//         gender: addGender.value,
+//         hobby: addHobby.value,
+//         height: addHeight.value,
+//         programmingSkill: addProgrammingSkill.value
+//     }
+//     group.push(newMember)
+//     console.log(newMember)
+// }
+// }
+
+// createTable(group)
