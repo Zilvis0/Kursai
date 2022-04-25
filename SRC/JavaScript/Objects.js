@@ -150,7 +150,7 @@ function Reducing(value){
 }
 
 let leButton = document.createElement("button")
-leButton.classList.add("send")
+leButton.onclick = () => createNewMember()
 function createNewMemberArea(){
     const inputHeader = document.createElement("tr")
     const inputFooter = document.createElement("tr")
@@ -165,6 +165,7 @@ function createNewMemberArea(){
     for (let param of keys){
         const tableData = document.createElement("td")
         const inputArea = document.createElement("input")
+        inputArea.id = param
         inputArea.placeholder = param
         inputArea.classList.add(param)
         tableData.appendChild(inputArea)       
@@ -175,36 +176,28 @@ function createNewMemberArea(){
     TableBody.appendChild(inputFooter)
 }
 
-// window.onload = function(){
-// function inputValue(x){
-//     return document.querySelector(x)
-// }
+function createNewMember(){
 
-// leButton = inputValue(".send")
-// leButton.addEventListener('click', createNewMember, false)
+    const addName = document.getElementById("firstName").value
+    const addSurname = document.getElementById("lastName").value
+    const addAge = document.getElementById("age").value
+    const addGender = document.getElementById("gender").value
+    const addHobby = document.getElementById("hobby").value
+    const addHeight = document.getElementById("height").value
+    const addProgrammingSkill = document.getElementById("programmingSkill").value
 
-// function createNewMember(){
+    const newMember = {
+        firstName: addName,
+        lastName: addSurname,
+        age: addAge,
+        gender: addGender,
+        hobby: addHobby,
+        height: addHeight,
+        programmingSkill: addProgrammingSkill
+    }
+    group.push(newMember)
+    console.log(newMember)
+    createTable(group)
+}
 
-//     let addName = inputValue(".firsName")
-//     let addSurname = inputValue(".lastName")
-//     let addAge = inputValue(".age")
-//     let addGender = inputValue(".gender")
-//     let addHobby = inputValue(".hobby")
-//     let addHeight = inputValue(".height")
-//     let addProgrammingSkill = inputValue(".programmingSkill")
-
-//     let newMember = {
-//         firstName: addName.value,
-//         lastName: addSurname.value,
-//         age: addAge.value,
-//         gender: addGender.value,
-//         hobby: addHobby.value,
-//         height: addHeight.value,
-//         programmingSkill: addProgrammingSkill.value
-//     }
-//     group.push(newMember)
-//     console.log(newMember)
-// }
-// }
-
-// createTable(group)
+createTable(group)

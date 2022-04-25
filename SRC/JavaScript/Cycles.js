@@ -11,7 +11,7 @@
 
 const TableBody = document.getElementById("tableid")
 
-const characters = [
+let characters = [
 
     {
 
@@ -24,6 +24,8 @@ const characters = [
         eye_color: 'blue',
 
         gender: 'male',
+
+        homeworld: ''
 
     },
 
@@ -121,9 +123,16 @@ function TableCreation(value) {
     value.map((character) => {
         const TableRow = document.createElement("tr")
         for (let key of keys) {
-            const TableData = document.createElement("td")
-            TableData.textContent = character[key]
-            TableRow.appendChild(TableData)
+            if (key === "homeworld"){
+                const homeWorld = document.createElement("button")
+                homeWorld.onclick = () => fetchHomeworld(fetchingHomeworlds)
+                homeWorld.textContent = "homeWolrd"
+                TableRow.appendChild(homeWorld)
+            }else{
+                const TableData = document.createElement("td")
+                TableData.textContent = character[key]
+                TableRow.appendChild(TableData)
+            }
         }
         TableBody.appendChild(TableRow) 
     })
@@ -205,4 +214,31 @@ const AreTheMaleTallerThan2m = characters.filter(object=>object.gender==="male")
 const AreThereCharsTallerThan170ButNotBrownEyes = characters.filter(object=>object.height>170).some(object=>object.eye_color!=="brown")
 
 
+let fetchurl = 'https://swapi.dev/api/people/';
+let previousPage;
+let nextPage;
 
+function getCharacters(url){
+    fetch(url).then((response) => {
+        response.json().then((data) => {
+            characters = data.results;
+            nextPage = data.next
+            TableCreation(characters);
+        })
+    })
+}
+
+getCharacters(fetchurl);
+
+let fetchingHomeworlds = "https://swapi.dev/api/planets/1/"
+
+function fetchHomeworld(url) {
+    fetch(url).then(response=>{
+        console.log(response);
+        response.json().then(data=>{
+            console.log("funkcijoj", data)
+            TableCreation(characters)
+        })
+    })
+}
+fetchHomeworld(fetchingHomeworlds)

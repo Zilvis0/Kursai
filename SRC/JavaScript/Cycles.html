@@ -13,16 +13,18 @@
 </head>
 
 <body>
+
     <table class="table">
-        <tr>
+        <thead>
             <th>Name</th>
             <th>Height</th>
             <th>Mass</th>
             <th>Eye Color</th>
             <th>Gender</th>
-        </tr>
-    </table>
-    <table id="tableid" class="table">
+        </thead>
+        <tbody id="tableid">
+
+        </tbody>
     </table>
     <button class="btn" onclick="TableCreation(characters)">All</button>
     <button class="btn" onclick="TableCreation(CharactersHeavierThan80)">Heavier Than 80</button>
@@ -35,6 +37,8 @@
     <button class="btn" onclick="Sorting4()">Eyes</button>
     <button class="btn" onclick="Sorting5()">Gender</button>
     <button class="btn" onclick="Sorting6()">Gender2</button>
+    <button class="btn" onclick="getCharacters(previousPage)">previous</button>
+    <button class="btn" onclick="getCharacters(nextPage)">next</button>
 </body>
 
 <script src="./Cycles.js"></script>
