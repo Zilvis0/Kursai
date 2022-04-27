@@ -27,10 +27,10 @@
         </tbody>
     </table>
     <button class="btn" onclick="TableCreation(characters)">All</button>
-    <button class="btn" onclick="TableCreation(CharactersHeavierThan80)">Heavier Than 80</button>
-    <button class="btn" onclick="TableCreation(CharactersShorterThan180)">Shorter Than 180</button>
-    <button class="btn" onclick="TableCreation(BlueEyesWhiteDragon)">Blue Eyes</button>
-    <button class="btn" onclick="TableCreation(CharactersThatAreMale)">Male</button>
+    <button class="btn" onclick="TableCreation(CharactersHeavierThan80())">Heavier Than 80</button>
+    <button class="btn" onclick="TableCreation(CharactersShorterThan180())">Shorter Than 180</button>
+    <button class="btn" onclick="TableCreation(BlueEyesWhiteDragon())">Blue Eyes</button>
+    <button class="btn" onclick="TableCreation(CharactersThatAreMale())">Male</button>
     <button class="btn" onclick="Sorting()">Name</button>
     <button class="btn" onclick="Sorting2()">Height</button>
     <button class="btn" onclick="Sorting3()">Mass</button>
@@ -38,8 +38,12 @@
     <button class="btn" onclick="Sorting5()">Gender</button>
     <button class="btn" onclick="Sorting6()">Gender2</button>
     <button class="btn" onclick="getCharacters(previousPage)">previous</button>
-    <button class="btn" onclick="getCharacters(nextPage)">next</button>
+    <button class="btn" onclick="getCharacters(nextPage, true)">next</button>
 </body>
+
+<ul id="listElement">
+
+</ul>
 
 <script src="./Cycles.js"></script>
 

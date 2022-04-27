@@ -27,56 +27,13 @@ let characters = [
 
         homeworld: ''
 
-    },
-
-    {
-
-        name: 'Darth Vader',
-
-        height: '202',
-
-        mass: '136',
-
-        eye_color: 'yellow',
-
-        gender: 'male',
-
-    },
-
-    {
-
-        name: 'Leia Organa',
-
-        height: '150',
-
-        mass: '49',
-
-        eye_color: 'brown',
-
-        gender: 'female',
-
-    },
-
-    {
-
-        name: 'Han Solo',
-
-        height: '188',
-
-        mass: '84',
-
-        eye_color: 'blue',
-
-        gender: 'male',
-
-    },
-
+    }
 ];
 
-const CharactersShorterThan180 = characters.filter(character => character.height < 180)
-const CharactersHeavierThan80 = characters.filter(character => character.mass > 80)
-const BlueEyesWhiteDragon = characters.filter(object=>object.eye_color==="blue")
-const CharactersThatAreMale = characters.filter(object=> object.gender === "male")
+const CharactersShorterThan180 = () => characters.filter(character => character.height < 180)
+const CharactersHeavierThan80 = () => characters.filter(character => character.mass > 80)
+const BlueEyesWhiteDragon = () => characters.filter(object=>object.eye_color==="blue")
+const CharactersThatAreMale = () => characters.filter(object=> object.gender === "male")
 
 // const SortingByName = characters.sort((a, b)=> a.name > b.name ? 1 : -1)
 // const SortingByHeight = characters.sort((a, b)=> a.height - b.height)
@@ -100,7 +57,7 @@ function Sorting3() {
     TableCreation(SortingByMass)
 }
 function Sorting4() {
-    const SortingByEyes = characters.sort((a, b)=> a.eye_color - b.eye_color)
+    const SortingByEyes = characters.sort((a, b)=> (a.eye_color > b.eye_color ? 1 : -1))
     TableCreation(SortingByEyes)
 }
 function Sorting5() {
@@ -125,7 +82,7 @@ function TableCreation(value) {
         for (let key of keys) {
             if (key === "homeworld"){
                 const homeWorld = document.createElement("button")
-                homeWorld.onclick = () => fetchHomeworld(fetchingHomeworlds)
+                homeWorld.onclick = () => fetchHomeworld(character[key])
                 homeWorld.textContent = "homeWolrd"
                 TableRow.appendChild(homeWorld)
             }else{
@@ -213,15 +170,22 @@ const AreTheMaleTallerThan2m = characters.filter(object=>object.gender==="male")
 
 const AreThereCharsTallerThan170ButNotBrownEyes = characters.filter(object=>object.height>170).some(object=>object.eye_color!=="brown")
 
-
+//prisiskiriam kintamajam api puslapi
 let fetchurl = 'https://swapi.dev/api/people/';
 let previousPage;
 let nextPage;
 
-function getCharacters(url){
+function getCharacters(url, isNextClicked){
+    TableBody.innerHTML="Loading..."
+    //
     fetch(url).then((response) => {
         response.json().then((data) => {
-            characters = data.results;
+            if (isNextClicked){
+                characters = characters.concat(data.results);
+            } else{
+                characters = data.results;
+            }
+            previousPage = data.previous || 'https://swapi.dev/api/people/?page=9'
             nextPage = data.next
             TableCreation(characters);
         })
@@ -230,15 +194,23 @@ function getCharacters(url){
 
 getCharacters(fetchurl);
 
-let fetchingHomeworlds = "https://swapi.dev/api/planets/1/"
-
 function fetchHomeworld(url) {
     fetch(url).then(response=>{
         console.log(response);
         response.json().then(data=>{
-            console.log("funkcijoj", data)
-            TableCreation(characters)
+            homeWorldInfo(data)
         })
     })
 }
-fetchHomeworld(fetchingHomeworlds)
+
+let listElement = document.getElementById("listElement")
+
+function homeWorldInfo(Data){
+    listElement.innerHTML = ""
+    let keys = ["name", "population", "terrain", "climate", "gravity"]
+    for (let key of keys){
+        const listItem = document.createElement("li")
+        listItem.innerHTML = `${key}: ${Data[key]}`
+        listElement.appendChild(listItem)
+    }
+}

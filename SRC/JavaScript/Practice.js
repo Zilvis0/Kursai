@@ -85,6 +85,9 @@ let ObjectSample = {
 
 // //suskaiciuojam suma naujos array
 
+//let sum = newArray.reduce((a,b)=> a+b)
+//console.log(sum)
+
 // function ShowingNewArray(differentArrays){
 //     if (differentArrays==1){
 //     console.log(newArray)
@@ -128,7 +131,7 @@ console.log(ObjectKeys)
 //======= Alternatyvus budas ==============
 
 ObjectSample.keyNumberFive = "Additional info"
-ObjectSample.keyNumberSix = "Info ++"
+ObjectSample.keyNumberSix = true
 
 console.log(ObjectSample, "new sample")
 
@@ -138,8 +141,40 @@ let evenNewerArray = []
 //per cikla idedam objektus. Kiek ciklas truks, tiek
 //objektu ir idesim
 
+function ShowingObjects(){
 for (x=0; x<5; x++){
     evenNewerArray.push(ObjectSample)
 }
-console.log(evenNewerArray, "po idejimo")
+console.log(evenNewerArray)
+}
+
+const inputArea = document.getElementById("inputId")
+const inputBtn = document.getElementById("inputBtnId")
+
+let inputTextLanding = document.getElementById("inputTextLanding")
+let inputLandingArray = ["hello"]
+inputTextLanding.textContent = inputLandingArray
+
+const theValue = inputArea.value
+const isValueEmptyOrExits = theValue == "" || inputLandingArray.includes(theValue)
+console.log(theValue, inputLandingArray)
+function ShowInputText() {
+    if (!isValueEmptyOrExits){
+        inputLandingArray.push(inputArea.value)
+        console.log(inputArea.value, inputLandingArray, "pries isvalant")
+        inputArea.value = ""
+        console.log(inputArea.value, inputLandingArray, "po isvalymo")
+        inputTextLanding.textContent = inputLandingArray
+        console.log(inputArea.value, inputLandingArray, "update")
+    } else{
+        console.log("Missed something")
+        console.log(inputLandingArray.includes(theValue))
+        console.log(inputLandingArray)
+    }
+}
+
+
+inputBtn.onclick = () => {
+    ShowInputText()
+}
 
