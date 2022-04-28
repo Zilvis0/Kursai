@@ -155,26 +155,24 @@ let inputTextLanding = document.getElementById("inputTextLanding")
 let inputLandingArray = ["hello"]
 inputTextLanding.textContent = inputLandingArray
 
-const theValue = inputArea.value
-const isValueEmptyOrExits = theValue == "" || inputLandingArray.includes(theValue)
-console.log(theValue, inputLandingArray)
-function ShowInputText() {
-    if (!isValueEmptyOrExits){
-        inputLandingArray.push(inputArea.value)
-        console.log(inputArea.value, inputLandingArray, "pries isvalant")
-        inputArea.value = ""
-        console.log(inputArea.value, inputLandingArray, "po isvalymo")
-        inputTextLanding.textContent = inputLandingArray
-        console.log(inputArea.value, inputLandingArray, "update")
-    } else{
-        console.log("Missed something")
-        console.log(inputLandingArray.includes(theValue))
-        console.log(inputLandingArray)
-    }
-}
+console.log(inputLandingArray)
 
+function ShowInputText() {
+    if (inputLandingArray.includes(inputArea.value) || inputArea.value ==""){
+        inputArea.value = ""
+    } else {
+    inputLandingArray.push(inputArea.value)
+    inputTextLanding.textContent=""
+    for (let x=0; x<inputLandingArray.length; x++){
+    let divElement = document.createElement("div")
+    divElement.textContent = inputLandingArray[x]
+    inputTextLanding.appendChild(divElement)
+        }
+inputArea.value=""
+
+    }
+} 
 
 inputBtn.onclick = () => {
     ShowInputText()
 }
-
