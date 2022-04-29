@@ -167,7 +167,6 @@ function createNewMemberArea(){
         const inputArea = document.createElement("input")
         inputArea.id = param
         inputArea.placeholder = param
-        inputArea.classList.add(param)
         tableData.appendChild(inputArea)       
         tableRow.appendChild(tableData)       
     } 
