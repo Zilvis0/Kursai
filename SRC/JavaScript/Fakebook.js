@@ -10,14 +10,16 @@ const feedInfo = "http://www.boredapi.com/api/activity/"
 let people
 let userPhoto = document.getElementById("userPhoto")
 let userInfo = document.getElementById("userInfo")
-let feed = document.getElementById("feed")
-let feedWrapper = document.getElementById("feedWrapper")
 let organiserInfo = document.getElementById("organiser")
 let joinButton = document.getElementById("joinButton")
+let chatButton = document.getElementById("chatButton")
 let roomArea = document.getElementById("roomArea")
 let searchElement = document.getElementById("searchInput")
 let searchResults = document.getElementById("searchResults")
 let intervalFunction
+let chatInput
+let chatArea
+
 
 function getPeople (person) {
     fetch(`${baseUrl + people100}`)
@@ -44,8 +46,19 @@ function getPeople (person) {
             fetch(feedInfo)
                 .then((response) => response.json()
                 .then((data) => {
-                    
-                    feed.innerHTML += `<p class="row justify-content-center">Activity: ${data.activity}</p><p class="row justify-content-center">Type: ${data.type}</p><p class="row justify-content-center border-bottom border-3 border-dark"">Participants: ${data.participants}</p>`          
+                  
+                    organiserInfo.innerHTML+=`<div class="row border border-warning border-2">
+                                                <div class="col-3">
+                                                    <img src="${people[i].picture.thumbnail}">
+                                                    <h4 class="">${people[i].name.first}</h4>
+                                                    <h4 class="">${people[i].name.last}</h4>
+                                                </div>    
+                                                <div class="col-9">    
+                                                    <h5 class="">Activity: ${data.activity}</h5>
+                                                    <h5 class="">Type: ${data.type}</h5>
+                                                    <h5 class=""">Participants: ${data.participants}</h5>
+                                                </div>          
+                                            </div>`                                         
             }))
         }
         fetch(feedInfo)
@@ -54,8 +67,18 @@ function getPeople (person) {
                 joinButton.innerHTML= `<button class="btn btn-outline-primary">Create activity</button>`
                 joinButton.onclick = () => Room(0)
                 function Room(param){
-                    roomArea.innerHTML=`<h2>${data.activity} group</h2><h3>${data.type}</h3><img src="${people[param].picture.thumbnail}">
-                    <div>${people[param].name.first}</div><div>${people[param].name.last}</div>`
+                    roomArea.innerHTML=`<div class="row justify-content-center">
+                                            <h2>${data.activity} group</h2>
+                                            <h4>type: ${data.type}</h4>
+                                        </div>
+                                        <div>
+                                            <h2>Admin: </h2>
+                                            <img src="${people[param].picture.thumbnail}">
+                                            <h3>${people[param].name.first}</h3>
+                                            <h3>${people[param].name.last}</h3>
+                                            <h2>Participants: </h2>
+                                        </div>`
+
                     intervalFunction = setInterval(()=>newMemberJoining(), 5000)
 
                     function newMemberJoining() {
@@ -63,20 +86,49 @@ function getPeople (person) {
                         roomArea.innerHTML+=`<img src="${people[randomNumber].picture.thumbnail}"><div>${people[randomNumber].name.first}</div><div>${people[randomNumber].name.last}</div>`
                     }
                 }
-            }))  
-        
-        for (let i=1; i<=6; i++){
-    
-            organiserInfo.innerHTML+=`<img class="row" src="${people[i].picture.thumbnail}">
-            <h4 class="row">${people[i].name.first}</h4><h4 class="border-bottom border-3 border-dark row">${people[i].name.last}</h4>`
-       
+        }))
+        chatButton.innerHTML = `<button class="btn btn-outline-primary">Chat</button>`
+        chatButton.onclick = () => chatRoom()
+        function chatRoom(){
+            let randomNumber = Math.floor(Math.random() * 100 +1)
+            roomArea.innerHTML=`<div class="row justify-content-center">
+                                    <h2>Welcome to ChatRoom!</h2>
+                                    <h4>find friends here</h4>
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div class="col-2 justify-content-start">
+                                        <img src="${people[0].picture.thumbnail}">
+                                        <h3>${people[0].name.first}</h3>
+                                        <h3>${people[0].name.last}</h3>
+                                    </div>
+                                    <div class="col-2 justify-content-end">
+                                        <img src="${people[randomNumber].picture.thumbnail}">
+                                        <h3>${people[randomNumber].name.first}</h3>
+                                        <h3>${people[randomNumber].name.last}</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <input id="chatInput">
+                                    <div id="chatArea">
+
+                                    </div>
+                                </div>`
+            chatInput=document.getElementById("chatInput")
+            chatArea=document.getElementById("chatArea")
+            chatInput.addEventListener("keyup", (event) =>{
+                if (event.key==="Enter"){
+                    chatArea.innerHTML += `<h4>${event.target.value}</h4>`
+                    chatInput.value = ""
+                }
+            })
+
         }
 
         userPhoto.src = people[person].picture.large
-        userInfo.innerHTML = `<div>${people[person].name.first}</div>
-        <div>${people[person].name.last}</div>
-        <div>${people[person].location.city}</div>
-        <div>${people[person].location.country}</div>`
+        userInfo.innerHTML =   `<h1>${people[person].name.first}</h1>
+                                <h1>${people[person].name.last}</h1>
+                                <h3>${people[person].location.city}</h3>
+                                <h3>${people[person].location.country}</h3>`
     }))
 }
 
