@@ -30,7 +30,7 @@ function getPeople (person) {
 
         searchElement.addEventListener("keyup", (event) => {
         
-            const a = people.filter(person => person.name.first.startsWith(event.target.value))
+            const a = people.filter(person => person.name.first.toLowerCase().includes(event.target.value)|| person.name.first.includes(event.target.value) || person.name.last.toLowerCase().includes(event.target.value) || person.name.last.includes(event.target.value))
             searchResults.innerHTML = ""
             if (a == ""){
                 searchResults.innerHTML += `<div>Sorry, No Results Found</div>` 
@@ -38,7 +38,7 @@ function getPeople (person) {
                 searchResults.innerHTML = ""
             }else{
                 a.map(object=>{ 
-                searchResults.innerHTML += `<div>${object.name.first} ${object.name.last}</div>`
+                searchResults.innerHTML += `<img src="${object.picture.thumbnail}"><div>${object.name.first.replace(`${event.target.value}`,`<b>${event.target.value}</b>`)}</div><div>${object.name.last.replace(`${event.target.value}`,`<b>${event.target.value}</b>`)}</div>`
                 })
             }
         })
@@ -48,7 +48,7 @@ function getPeople (person) {
                 .then((data) => {
                   
                     organiserInfo.innerHTML+=`<div class="row border border-warning border-2">
-                                                <div class="col-3">
+                                                <div class="col-3 p-2 bg-warning bg-opacity-50">
                                                     <img src="${people[i].picture.thumbnail}">
                                                     <h4 class="">${people[i].name.first}</h4>
                                                     <h4 class="">${people[i].name.last}</h4>
@@ -64,7 +64,7 @@ function getPeople (person) {
         fetch(feedInfo)
             .then((response) => response.json()
             .then((data) => {
-                joinButton.innerHTML= `<button class="btn btn-outline-primary">Create activity</button>`
+                joinButton.innerHTML= `<button class="btn w-100 p-2 m-1 btn-outline-primary">Create activity</button>`
                 joinButton.onclick = () => Room(0)
                 function Room(param){
                     roomArea.innerHTML=`<div class="row justify-content-center">
@@ -80,18 +80,23 @@ function getPeople (person) {
                                         </div>`
 
                     intervalFunction = setInterval(()=>newMemberJoining(), 5000)
-
+                    let timesRun = 0
                     function newMemberJoining() {
                         let randomNumber = Math.floor(Math.random() * 100 +1)
+                        timesRun ++
+                        if (timesRun == 5){
+                            clearInterval(intervalFunction)
+                        }
                         roomArea.innerHTML+=`<img src="${people[randomNumber].picture.thumbnail}"><div>${people[randomNumber].name.first}</div><div>${people[randomNumber].name.last}</div>`
                     }
                 }
         }))
-        chatButton.innerHTML = `<button class="btn btn-outline-primary">Chat</button>`
+        chatButton.innerHTML = `<button class="btn w-100 p-2 m-1 btn-outline-primary">Chat</button>`
         chatButton.onclick = () => chatRoom()
         function chatRoom(){
+            clearInterval(intervalFunction)
             let randomNumber = Math.floor(Math.random() * 100 +1)
-            roomArea.innerHTML=`<div class="row justify-content-center">
+            roomArea.innerHTML=`<div class="bg-success bg-opacity-75 row justify-content-center">
                                     <h2>Welcome to ChatRoom!</h2>
                                     <h4>find friends here</h4>
                                 </div>
@@ -115,9 +120,20 @@ function getPeople (person) {
                                 </div>`
             chatInput=document.getElementById("chatInput")
             chatArea=document.getElementById("chatArea")
+            function chattingIsHard(phrase){
+                const sentenceArray=["Hello", `My name is ${people[randomNumber].name.first}`, "Sorry, I don't understand you" ]
+                chatArea.innerHTML += `<h4 style="text-align: end">${sentenceArray[phrase]}</h4>`
+            }
             chatInput.addEventListener("keyup", (event) =>{
                 if (event.key==="Enter"){
                     chatArea.innerHTML += `<h4>${event.target.value}</h4>`
+                    if (event.target.value=="hello"){
+                        chattingIsHard(0)
+                    } else if(event.target.value.includes("name")){
+                        chattingIsHard(1)
+                    } else if (event.target.value !==""){
+                        chattingIsHard(2)
+                    }
                     chatInput.value = ""
                 }
             })
