@@ -2,6 +2,8 @@
 let nameInput = document.getElementById("nameInput")
 let amountInput = document.getElementById("amountInput")
 let inputButton = document.getElementById("inputButton")
+let displayTable = document.getElementById("displayTable")
+
 
 
 // prisiskiriam laikus
@@ -13,7 +15,6 @@ let minutes = String(new Date().getMinutes()).padStart(2, '0')
 let time = (`${hours}:${minutes}`)
 //paskiriam norima formatavima esamam
 let inputDate = (`${year}-${month}-${day} ${time}`)
-console.log(inputDate)
 //naujas kintamasis senam array istraukti is localStorage
 let pulledInfo
 
@@ -37,6 +38,7 @@ let newData = {
 // i array ir ta array i localStorage
 
 function add(){
+    displayTable.innerHTML = ""
     newData = {
     name: nameInput.value,
     amount: Number(amountInput.value),
@@ -46,6 +48,9 @@ function add(){
         dataArray.push(newData)
         localStorage.setItem("data", JSON.stringify(dataArray))
     }
+    nameInput.value = ""
+    amountInput.value = ""
+    creatingTable()
 }
 
 //button onclick prideda nauja object
@@ -53,16 +58,113 @@ function add(){
 inputButton.onclick = () => add()
 
 
+//delete info funkcija
+function del(param){
+    displayTable.innerHTML = ""
+    dataArray.splice(param, 1)
+    localStorage.setItem("data", JSON.stringify(dataArray))
+    creatingTable()
+}
+
+
+
+//Table sukurimo funkcija
+function creatingTable(){
+    let keys = Object.keys(dataArray[0])
+    let header = document.createElement("tr")
+    header.classList.add("row", "border-bottom", "border-dark")
+    header.innerHTML += `<th class="col-1">#</th>
+                        <th class="col-3">Name</th>
+                        <th class="col-3">Amount</th>
+                        <th class="col-3">Date</th>`
+    displayTable.appendChild(header)
+
+   dataArray.map((object, index)=>{
+
+        let tableRow  = document.createElement("tr")
+        tableRow.classList.add("row")
+        tableRow.innerHTML += `<td class="col-1">${index + 1}</td>`
+
+        //edit info funkcija
+
+        function edit(param){
+        editModal.style.display = "block"
+        editName.value = dataArray[index].name
+        editAmount.value = dataArray[index].amount
+             // save changes veikimas
+             let saveChanges = document.getElementById("saveChanges")
+       
+                saveChanges.onclick = () => savingChanges()
+       
+                function savingChanges(){
+                    displayTable.innerHTML = ""
+                    dataArray[index].name = editName.value
+                    dataArray[index].amount = editAmount.value
+                    dataArray[index].date = inputDate
+                    localStorage.setItem("data", JSON.stringify(dataArray))
+                    creatingTable()
+                    editModal.style.display = "none"
+                }
+
+
+        }
+        //
+      
+        
+        
+        
+        
+        //
+
+        for (let key of keys){
+            tableRow.innerHTML += `<td id="${index + [key]}" class="col-3">${object[key]}</td>`
+            
+        }
+        
+    
+        // edit button
+        let editButton = document.createElement("button")
+        editButton.textContent = "edit"
+        editButton.classList.add("btn", "btn-outline-info", "col-1")
+        editButton.onclick = () => edit(index)
+        //
+        //delete button
+        let delButton = document.createElement("button")
+        delButton.textContent = "delete"
+        delButton.classList.add("btn", "btn-outline-danger", "col-1")
+        delButton.onclick = () => del(index)
+        //
+        
+        tableRow.appendChild(editButton)
+        tableRow.appendChild(delButton)
+        displayTable.appendChild(tableRow)
+    })
+}
+creatingTable()
 
 
 
 
-// // Taip prisiskirt redaguotina teksta bus galima inputam
-// // let i nera butinas, duomenis trauksi is localStorage
-// let i = 3
-// nameInput.value = "Testas2"
-// amountInput.value = Number(i)
+// function edit(){
+//object pagal index  ir tada jo {name = ?} {amount = ?} {date = inputDate}   
+//}
 
-// console.log(nameInput.value)
+
+let editModal = document.getElementById("editModal")
+let closeButton = document.getElementById("close")
+let editName = document.getElementById("editName")
+let editAmount = document.getElementById("editAmount")
+
+
+closeButton.onclick = () =>{
+    editModal.style.display = "none"
+}
+
+window.onclick = (event) => {
+    if (event.target == editModal){
+        editModal.style.display = "none"
+    }
+}
+
 
 
