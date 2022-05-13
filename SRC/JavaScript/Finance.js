@@ -70,16 +70,9 @@ function del(param){
 
 //Table sukurimo funkcija
 function creatingTable(){
+    displayTable.innerHTML=""
     let keys = Object.keys(dataArray[0])
-    let header = document.createElement("tr")
-    header.classList.add("row", "border-bottom", "border-dark")
-    header.innerHTML += `<th class="col-1">#</th>
-                        <th class="col-3">Name</th>
-                        <th class="col-3">Amount</th>
-                        <th class="col-3">Date</th>`
-    displayTable.appendChild(header)
-
-   dataArray.map((object, index)=>{
+    dataArray.map((object, index)=>{
 
         let tableRow  = document.createElement("tr")
         tableRow.classList.add("row")
@@ -105,23 +98,12 @@ function creatingTable(){
                     creatingTable()
                     editModal.style.display = "none"
                 }
-
-
         }
-        //
-      
-        
-        
-        
-        
-        //
 
         for (let key of keys){
-            tableRow.innerHTML += `<td id="${index + [key]}" class="col-3">${object[key]}</td>`
-            
+            tableRow.innerHTML += `<td id="${index + [key]}" class="col-3">${object[key]}</td>`    
         }
         
-    
         // edit button
         let editButton = document.createElement("button")
         editButton.textContent = "edit"
@@ -143,13 +125,6 @@ function creatingTable(){
 creatingTable()
 
 
-
-
-// function edit(){
-//object pagal index  ir tada jo {name = ?} {amount = ?} {date = inputDate}   
-//}
-
-
 let editModal = document.getElementById("editModal")
 let closeButton = document.getElementById("close")
 let editName = document.getElementById("editName")
@@ -166,5 +141,43 @@ window.onclick = (event) => {
     }
 }
 
+//Susikuriam bolean, kad tikrinti kuria kryptim isfiltrruota buvo
 
+let nameBolean = true
+let amountBolean = true
+let dateBolean = true
 
+let nameHeader = document.getElementById("nameHeader")
+let amountHeader = document.getElementById("amountHeader")
+let dateHeader = document.getElementById("dateHeader")
+
+amountHeader.onclick = () => filterNumber(amountBolean)
+nameHeader.onclick = () => filterName(nameBolean)
+dateHeader.onclick = () => filterName(dateBolean)
+//Kuriam filter funkcija
+//jei paramB yra true, filtruojam i viena puse, jei false i kita
+
+function filterNumber(paramB){
+
+    if (paramB){
+        dataArray.sort((a,b) => Number(a.amount) - Number(b.amount))
+        amountBolean = false
+    }else{
+        dataArray.sort((a,b) => Number(b.amount) - Number(a.amount))
+        amountBolean = true
+    }
+    creatingTable()
+}
+function filterName(paramB){
+    if (paramB){
+        dataArray.sort((a,b) => a.name.localeCompare(b.name))
+        paramB = false
+    }else{
+        dataArray.sort((a,b) => b.name.localeCompare(a.name))
+        paramB = true
+    }
+    creatingTable()
+}
+
+// dataArray.sort((a,b) => Number(a.amount) - Number(b.amount))
+// creatingTable()
