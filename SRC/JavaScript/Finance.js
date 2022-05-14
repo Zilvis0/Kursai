@@ -38,7 +38,6 @@ let newData = {
 // i array ir ta array i localStorage
 
 function add(){
-    displayTable.innerHTML = ""
     newData = {
     name: nameInput.value,
     amount: Number(amountInput.value),
@@ -60,13 +59,19 @@ inputButton.onclick = () => add()
 
 //delete info funkcija
 function del(param){
-    displayTable.innerHTML = ""
     dataArray.splice(param, 1)
     localStorage.setItem("data", JSON.stringify(dataArray))
     creatingTable()
 }
 
+let currentCounter = document.getElementById("currentCounter")
+let amountCounter = document.getElementById("amountCounter")
 
+function Counting(){
+    currentCounter.innerHTML = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+    currentCounter.innerHTML = "test"
+    amountCounter.innerHTML = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+}
 
 //Table sukurimo funkcija
 function creatingTable(){
@@ -121,6 +126,7 @@ function creatingTable(){
         tableRow.appendChild(delButton)
         displayTable.appendChild(tableRow)
     })
+    Counting()
 }
 creatingTable()
 
@@ -147,13 +153,14 @@ let nameBolean = true
 let amountBolean = true
 let dateBolean = true
 
-let nameHeader = document.getElementById("nameHeader")
 let amountHeader = document.getElementById("amountHeader")
+let nameHeader = document.getElementById("nameHeader")
 let dateHeader = document.getElementById("dateHeader")
 
-amountHeader.onclick = () => filterNumber(amountBolean)
-nameHeader.onclick = () => filterName(nameBolean)
-dateHeader.onclick = () => filterName(dateBolean)
+    amountHeader.onclick = () => filterNumber(amountBolean)
+    nameHeader.onclick = () => filterName(nameBolean)
+    dateHeader.onclick = () => filterDate(dateBolean)
+
 //Kuriam filter funkcija
 //jei paramB yra true, filtruojam i viena puse, jei false i kita
 
@@ -171,13 +178,22 @@ function filterNumber(paramB){
 function filterName(paramB){
     if (paramB){
         dataArray.sort((a,b) => a.name.localeCompare(b.name))
-        paramB = false
+        nameBolean = false
     }else{
         dataArray.sort((a,b) => b.name.localeCompare(a.name))
-        paramB = true
+        nameBolean = true
+    }
+    creatingTable()
+}
+function filterDate(paramB){
+    if (paramB){
+        dataArray.sort((a,b) => a.date.localeCompare(b.date))
+        dateBolean = false
+    }else{
+        dataArray.sort((a,b) => b.date.localeCompare(a.date))
+        dateBolean = true
     }
     creatingTable()
 }
 
-// dataArray.sort((a,b) => Number(a.amount) - Number(b.amount))
-// creatingTable()
+
