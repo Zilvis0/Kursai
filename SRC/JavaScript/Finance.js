@@ -73,6 +73,13 @@ function Counting(){
     amountCounter.innerHTML = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
 }
 
+    ///
+    /// copy
+    ///
+    let currentPage = 1;
+    let recordsPerPage = 4;
+
+
 //Table sukurimo funkcija
 function creatingTable(){
     displayTable.innerHTML=""
@@ -104,9 +111,9 @@ function creatingTable(){
                     editModal.style.display = "none"
                 }
         }
-
+        
         for (let key of keys){
-            tableRow.innerHTML += `<td id="${index + [key]}" class="col-3">${object[key]}</td>`    
+            tableRow.innerHTML += `<td class="col-3">${object[key]}</td>`    
         }
         
         // edit button
@@ -121,10 +128,13 @@ function creatingTable(){
         delButton.classList.add("btn", "btn-outline-danger", "col-1")
         delButton.onclick = () => del(index)
         //
+
         
-        tableRow.appendChild(editButton)
-        tableRow.appendChild(delButton)
-        displayTable.appendChild(tableRow)
+        for (let x = 0; x<1; x++) {
+            tableRow.appendChild(editButton)
+            tableRow.appendChild(delButton)
+            displayTable.appendChild(tableRow)
+        }
     })
     Counting()
 }
@@ -197,3 +207,53 @@ function filterDate(paramB){
 }
 
 
+function prevPage()
+{
+    if (currentPage > 1) {
+        currentPage--;
+        changePage(currentPage);
+    }
+}
+
+function nextPage()
+{
+    if (currentPage < numPages()) {
+        currentPage++;
+        changePage(currentPage);
+    }
+}
+
+function changePage(page)
+{
+    let buttonNext = document.getElementById("buttonNext");
+    let buttonPrev = document.getElementById("buttonPrev");
+    let pageCount = document.getElementById("pageCount");
+ 
+    // Validate page
+    if (page < 1) currentPage = 1;
+    if (page > numPages()) currentPage = numPages();
+
+   
+    pageCount.innerHTML = currentPage;
+
+    if (page == 1) {
+        buttonPrev.style.visibility = "hidden";
+    } else {
+        buttonPrev.style.visibility = "visible";
+    }
+
+    if (page == numPages()) {
+        buttonNext.style.visibility = "hidden";
+    } else {
+        buttonNext.style.visibility = "visible";
+    }
+}
+
+function numPages()
+{
+    return Math.ceil(dataArray.length / recordsPerPage);
+}
+
+window.onload = function() {
+    changePage(currentPage)
+}
