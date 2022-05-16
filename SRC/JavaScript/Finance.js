@@ -67,24 +67,77 @@ function del(param){
 let currentCounter = document.getElementById("currentCounter")
 let amountCounter = document.getElementById("amountCounter")
 
-function Counting(){
-    currentCounter.innerHTML = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
-    currentCounter.innerHTML = "test"
-    amountCounter.innerHTML = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+
+
+        ///             ///
+       /// Pagination  ///
+      ///             ///
+   
+let paginationObject = {
+    currentPage: 1,
+    recordsPerPage: 5,
+    total: Math.ceil(dataArray.length / 5)
 }
 
-    ///
-    /// copy
-    ///
-    let currentPage = 1;
-    let recordsPerPage = 4;
 
+function pagination(){
+    let {recordsPerPage, currentPage} = paginationObject;
+  
+    let min = (recordsPerPage * currentPage) - (recordsPerPage)
+    let max = (recordsPerPage * currentPage)
+
+    let paginatedDataArray = dataArray.filter((item, index)=>{
+        if (index >= min && index < max){
+            return item
+        }
+    })
+    function Counting(){
+        currentCounter.innerHTML = paginatedDataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+        amountCounter.innerHTML = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+    }
+    Counting()
+
+    let buttonNext = document.getElementById("buttonNext");
+    let buttonPrev = document.getElementById("buttonPrev");
+    let pageCount = document.getElementById("pageCount");
+
+    buttonNext.onclick = () => {
+        paginationObject.currentPage++
+        pagination("next")
+    }
+    buttonPrev.onclick = () => {
+        paginationObject.currentPage--
+        pagination("prev")
+    }
+
+    // Validate page
+    if (paginationObject.currentPage < 1) paginationObject.currentPage = 1;
+    if (paginationObject.currentPage > paginationObject.total) paginationObject.currentPage = paginationObject.total;
+
+
+    pageCount.innerHTML = `${paginationObject.currentPage}/${Math.ceil(paginationObject.total)}`;
+
+    if (paginationObject.currentPage == 1) {
+        buttonPrev.style.visibility = "hidden";
+    } else {
+        buttonPrev.style.visibility = "visible";
+    }
+
+    if (paginationObject.currentPage == paginationObject.total) {
+        buttonNext.style.visibility = "hidden";
+    } else {
+        buttonNext.style.visibility = "visible";
+    }
+
+
+    creatingTable(paginatedDataArray)
+}
 
 //Table sukurimo funkcija
-function creatingTable(){
+function creatingTable(TheArray){
     displayTable.innerHTML=""
     let keys = Object.keys(dataArray[0])
-    dataArray.map((object, index)=>{
+    TheArray.map((object, index)=>{
 
         let tableRow  = document.createElement("tr")
         tableRow.classList.add("row")
@@ -107,7 +160,7 @@ function creatingTable(){
                     dataArray[index].amount = editAmount.value
                     dataArray[index].date = inputDate
                     localStorage.setItem("data", JSON.stringify(dataArray))
-                    creatingTable()
+                    creatingTable(dataArray)
                     editModal.style.display = "none"
                 }
         }
@@ -136,10 +189,8 @@ function creatingTable(){
             displayTable.appendChild(tableRow)
         }
     })
-    Counting()
 }
-creatingTable()
-
+pagination()
 
 let editModal = document.getElementById("editModal")
 let closeButton = document.getElementById("close")
@@ -183,7 +234,7 @@ function filterNumber(paramB){
         dataArray.sort((a,b) => Number(b.amount) - Number(a.amount))
         amountBolean = true
     }
-    creatingTable()
+    creatingTable(dataArray)
 }
 function filterName(paramB){
     if (paramB){
@@ -193,7 +244,7 @@ function filterName(paramB){
         dataArray.sort((a,b) => b.name.localeCompare(a.name))
         nameBolean = true
     }
-    creatingTable()
+    creatingTable(dataArray)
 }
 function filterDate(paramB){
     if (paramB){
@@ -203,57 +254,6 @@ function filterDate(paramB){
         dataArray.sort((a,b) => b.date.localeCompare(a.date))
         dateBolean = true
     }
-    creatingTable()
+    creatingTable(dataArray)
 }
 
-
-function prevPage()
-{
-    if (currentPage > 1) {
-        currentPage--;
-        changePage(currentPage);
-    }
-}
-
-function nextPage()
-{
-    if (currentPage < numPages()) {
-        currentPage++;
-        changePage(currentPage);
-    }
-}
-
-function changePage(page)
-{
-    let buttonNext = document.getElementById("buttonNext");
-    let buttonPrev = document.getElementById("buttonPrev");
-    let pageCount = document.getElementById("pageCount");
- 
-    // Validate page
-    if (page < 1) currentPage = 1;
-    if (page > numPages()) currentPage = numPages();
-
-   
-    pageCount.innerHTML = currentPage;
-
-    if (page == 1) {
-        buttonPrev.style.visibility = "hidden";
-    } else {
-        buttonPrev.style.visibility = "visible";
-    }
-
-    if (page == numPages()) {
-        buttonNext.style.visibility = "hidden";
-    } else {
-        buttonNext.style.visibility = "visible";
-    }
-}
-
-function numPages()
-{
-    return Math.ceil(dataArray.length / recordsPerPage);
-}
-
-window.onload = function() {
-    changePage(currentPage)
-}
