@@ -34,14 +34,27 @@ let newData = {
 }
 
 
+let checkBox = document.getElementById("checkBox")
+
 // funckija prideti input values 
 // i array ir ta array i localStorage
 
 function add(){
-    newData = {
-    name: nameInput.value,
-    amount: Number(amountInput.value),
-    date: inputDate
+    if (checkBox.checked == true){
+        newData = {
+            name: nameInput.value,
+            amount: Number(amountInput.value),
+            date: inputDate,
+            id: nameInput.value + amountInput.value + inputDate
+            }
+        checkBox.checked = false
+    } else {
+        newData = {
+            name: nameInput.value,
+            amount: Number(-amountInput.value),
+            date: inputDate,
+            id: nameInput.value + amountInput.value + inputDate
+            }
     }
     if (nameInput.value !== "" && amountInput.value !== ""){
         dataArray.push(newData)
@@ -49,20 +62,13 @@ function add(){
     }
     nameInput.value = ""
     amountInput.value = ""
-    creatingTable()
+    pagination()
+
 }
 
 //button onclick prideda nauja object
 //su input values i array
 inputButton.onclick = () => add()
-
-
-//delete info funkcija
-function del(param){
-    dataArray.splice(param, 1)
-    localStorage.setItem("data", JSON.stringify(dataArray))
-    creatingTable()
-}
 
 let currentCounter = document.getElementById("currentCounter")
 let amountCounter = document.getElementById("amountCounter")
@@ -75,8 +81,8 @@ let amountCounter = document.getElementById("amountCounter")
    
 let paginationObject = {
     currentPage: 1,
-    recordsPerPage: 5,
-    total: Math.ceil(dataArray.length / 5)
+    recordsPerPage: 4,
+    total: Math.ceil(dataArray.length / 4)
 }
 
 
@@ -92,8 +98,20 @@ function pagination(){
         }
     })
     function Counting(){
-        currentCounter.innerHTML = paginatedDataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
-        amountCounter.innerHTML = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+        let curTot = paginatedDataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+        let totTot = dataArray.map(object => object.amount).reduce((a,b)=>Number(a) + Number(b))
+        currentCounter.innerHTML = curTot
+        amountCounter.innerHTML = totTot
+        if (curTot<0){
+            currentCounter.style.background = "rgb(217, 31, 17, 0.5)"
+        } else{
+            currentCounter.style.background = "rgb(31, 204, 29, 0.5)"
+        }
+        if (totTot<0){
+            amountCounter.style.background = "rgb(217, 31, 17, 0.5)"
+        }else{
+            amountCounter.style.background = "rgb(31, 204, 29, 0.5)"
+        }
     }
     Counting()
 
@@ -136,19 +154,18 @@ function pagination(){
 //Table sukurimo funkcija
 function creatingTable(TheArray){
     displayTable.innerHTML=""
-    let keys = Object.keys(dataArray[0])
+    let keys = ["#", "Name", "Amount", "Date", ""]
     TheArray.map((object, index)=>{
 
         let tableRow  = document.createElement("tr")
         tableRow.classList.add("row")
-        tableRow.innerHTML += `<td class="col-1">${index + 1}</td>`
 
         //edit info funkcija
 
         function edit(param){
         editModal.style.display = "block"
-        editName.value = dataArray[index].name
-        editAmount.value = dataArray[index].amount
+        editName.value = object.name
+        editAmount.value = object.amount
              // save changes veikimas
              let saveChanges = document.getElementById("saveChanges")
        
@@ -156,38 +173,77 @@ function creatingTable(TheArray){
        
                 function savingChanges(){
                     displayTable.innerHTML = ""
-                    dataArray[index].name = editName.value
-                    dataArray[index].amount = editAmount.value
-                    dataArray[index].date = inputDate
+                    object.name = editName.value
+                    object.amount = editAmount.value
+                    object.date = inputDate
                     localStorage.setItem("data", JSON.stringify(dataArray))
-                    creatingTable(dataArray)
+                    pagination()
                     editModal.style.display = "none"
                 }
         }
-        
-        for (let key of keys){
-            tableRow.innerHTML += `<td class="col-3">${object[key]}</td>`    
-        }
-        
-        // edit button
-        let editButton = document.createElement("button")
-        editButton.textContent = "edit"
-        editButton.classList.add("btn", "btn-outline-info", "col-1")
-        editButton.onclick = () => edit(index)
-        //
-        //delete button
-        let delButton = document.createElement("button")
-        delButton.textContent = "delete"
-        delButton.classList.add("btn", "btn-outline-danger", "col-1")
-        delButton.onclick = () => del(index)
-        //
 
-        
-        for (let x = 0; x<1; x++) {
-            tableRow.appendChild(editButton)
-            tableRow.appendChild(delButton)
-            displayTable.appendChild(tableRow)
+        //delete info funkcija
+        function del(param){
+            dataArray = dataArray.filter(object => object !== param)
+            localStorage.setItem("data", JSON.stringify(dataArray))
+            pagination()
         }
+
+        for (let key of keys){
+
+                        // edit button
+            let editButton = document.createElement("button")
+            editButton.textContent = "edit"
+            editButton.classList.add("btn", "btn-outline-info", "col-1")
+            editButton.onclick = () => edit()
+            //
+            //delete button
+            let delButton = document.createElement("button")
+            delButton.textContent = "delete"
+            delButton.classList.add("btn", "btn-outline-danger", "col-1")
+            delButton.onclick = () => del(object)
+            //
+            displayTable.appendChild(tableRow)
+
+            if (key === "#"){
+                tableRow.innerHTML += `<td class="col-1">${(paginationObject.currentPage*paginationObject.recordsPerPage-paginationObject.recordsPerPage) + index+1}</td>`
+            } else if( key === "Name"){
+                tableRow.innerHTML += `<td class="col-3">${object.name}</td>`
+            }else if( key === "Amount"){
+                tableRow.innerHTML += `<td class="col-3">${object.amount}</td>`
+                if (object.amount<0){
+                    tableRow.style.background = "rgb(222, 90, 67, 0.2)"
+                } else {
+                    tableRow.style.background = "rgb(153, 240, 81, 0.2)"
+                }
+            }else if( key === "Date"){
+                tableRow.innerHTML += `<td class="col-3">${object.date}</td>`
+            } else {
+                tableRow.appendChild(editButton)
+                tableRow.appendChild(delButton)
+            }
+        }
+
+        //showAll button
+
+        let showAll = document.getElementById("showAll")
+        showAll.onclick = () => {
+            paginationObject.currentPage = 1
+            paginationObject.recordsPerPage = dataArray.length
+            paginationObject.total = Math.ceil(dataArray.length)
+            pagination()
+            pageCount.innerHTML = ""
+            buttonNext.style.display = "none"
+        }
+        //showLess button
+        
+        let showLess = document.getElementById("showLess")
+        showLess.onclick = () => {
+            paginationObject.recordsPerPage = 4
+            paginationObject.total = Math.ceil(dataArray.length / 4)
+            pagination()
+            buttonNext.style.display = "block"
+        }   
     })
 }
 pagination()
@@ -196,7 +252,6 @@ let editModal = document.getElementById("editModal")
 let closeButton = document.getElementById("close")
 let editName = document.getElementById("editName")
 let editAmount = document.getElementById("editAmount")
-
 
 closeButton.onclick = () =>{
     editModal.style.display = "none"
@@ -234,7 +289,7 @@ function filterNumber(paramB){
         dataArray.sort((a,b) => Number(b.amount) - Number(a.amount))
         amountBolean = true
     }
-    creatingTable(dataArray)
+    pagination()
 }
 function filterName(paramB){
     if (paramB){
@@ -244,7 +299,7 @@ function filterName(paramB){
         dataArray.sort((a,b) => b.name.localeCompare(a.name))
         nameBolean = true
     }
-    creatingTable(dataArray)
+    pagination()
 }
 function filterDate(paramB){
     if (paramB){
@@ -254,6 +309,24 @@ function filterDate(paramB){
         dataArray.sort((a,b) => b.date.localeCompare(a.date))
         dateBolean = true
     }
-    creatingTable(dataArray)
+    pagination()
 }
-
+ 
+let Income = document.getElementById("Income")
+let Expenses = document.getElementById("Expenses")
+let AllMoney = document.getElementById("AllMoney")
+   
+    Income.onclick = () => {
+        dataArray = dataArray.filter(object=>object.amount>=0)
+        pagination()
+        console.log("income")
+    }
+    Expenses.onclick = () => {
+        dataArray = dataArray.filter(object=>object.amount<0)
+        pagination()
+        console.log("expense")
+    }
+    AllMoney.onclick = () => {
+        pagination()
+        console.log("all")
+    }
