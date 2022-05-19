@@ -14,12 +14,16 @@
 
 <body>
     <div class="container-fluid p-3 bg-light border border-danger border-2 d-flex flex-column justify-content-center">
-        <div id="inputAreaWrapper" class="container p-2 m-1">
-            <input id="nameInput" type="text" placeholder="Name" value="">
-            <input id="amountInput" type="number" placeholder="Amount" value="">
-            <span>check if Income</span>
-            <input id="checkBox" type="checkbox"></input>
-            <button id="inputButton">Submit</button>
+        <div id="inputAreaWrapper" class="container p-2 m-1 row">
+            <input id="nameInput" class="col-2" type="text" placeholder="Name" value="">
+            <input id="amountInput" class="col-2" type="number" placeholder="Amount" value="">
+            <div class="col-2">
+                <input id="checkBox" name="moneyFlow" type="radio" value="income">
+                <label for="checkbox">Income</label>
+                <input id="radioBox" name="moneyFlow" type="radio" value="expense" checked>   
+                <label for="radioBox">Expense</label>
+            </div>
+            <button id="inputButton" class="btn btn-outline-primary col-2">Submit</button>
         </div>
 
         <div id="editModal" class="modal" style="z-index: 1; display: none; position: fixed; left: 0;  top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); ">
