@@ -20,6 +20,9 @@ let editAmount = document.getElementById("editAmount")
 let amountHeader = document.getElementById("amountHeader")
 let nameHeader = document.getElementById("nameHeader")
 let dateHeader = document.getElementById("dateHeader")
+let FromDate = document.getElementById("FromDate")
+let ToDate = document.getElementById("ToDate")
+let searchButton =document.getElementById("searchButton")
 
 // prisiskiriam laikus
 let month  = String(new Date().getMonth() + 1).padStart(2, '0')
@@ -108,6 +111,23 @@ Expenses.onclick = () => {
     paginationObject.total = Math.ceil(FilteredDataArray.length / paginationObject.recordsPerPage)
     pagination()
     Counting()
+}
+searchButton.onclick = () => {
+    let FromDateConverted = new Date(FromDate.value)
+    let ToDateConverted = new Date(ToDate.value)
+    if (FromDate.value != "" && ToDate.value != ""){
+        isFiltered = true
+        FilteredDataArray = dataArray.filter((object)=>{
+            if (FromDateConverted <= new Date(object.date) && new Date(object.date) < ToDateConverted){
+                return object
+            }
+        })
+        paginationObject.total = Math.ceil(FilteredDataArray.length / paginationObject.recordsPerPage)
+        FromDate.value = ""
+        ToDate.value = ""
+        pagination()
+        Counting()
+    }
 }
 AllMoney.onclick = () => {
     isFiltered = false
@@ -330,3 +350,4 @@ function filterDate(paramB){
     }
     pagination()
 }
+
