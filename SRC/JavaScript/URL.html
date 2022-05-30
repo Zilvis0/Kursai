@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL stuff</title>
+</head>
+<body>
+    <input id="input">
+    <button id="Btn" onclick="searchFill()">search</button>
+    <div id="displayA"></div>
+
+</body>
+<script>
+    let url = new URL (window.location.href)
+    let inputA = document.getElementById("input")
+    let Btn = document.querySelector("Btn")
+    let displayA = document.getElementById("displayA")
+    
+    function searchFill () {
+        window.location.href = `?username=${inputA.value}`
+    }
+
+    if (window.location.search){
+        displayA.innerHTML += `Welcome, ${window.location.search.split("=")[1]}`
+        displayA.innerHTML += `Welcome, ${url.searchParams.get("username")}`
+    }
+    
+    
+    console.log("original", "!@#$%^&*()")
+    console.log("encoded", `${encodeURIComponent("!@#$%^&*()")}`)
+    console.log("decoded", `${decodeURIComponent("!%40%23%24%25%5E%26*()")}`)
+
+    console.log("protocol", window.location.protocol)
+    console.log("hostname", window.location.hostname)
+    console.log("pathname", window.location.pathname)
+    console.log("href", window.location.href)
+</script>
+</html>
