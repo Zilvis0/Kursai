@@ -1,3 +1,6 @@
+//ignores specific files as to not have
+//them commited to the repository
+
 **/SASS/*.css
 **/SASS/*.map
 *.zip
