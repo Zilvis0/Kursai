@@ -1,19 +1,19 @@
 ![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
 ![Security Status](https://img.shields.io/security-headers?label=Security&url=https%3A%2F%2Fgithub.com&style=flat-square)
 ![Eco Status](https://img.shields.io/badge/ECO-Friendly-green.svg)
-![Relative date](https://img.shields.io/date/:timestamp)
 
 
-# Nodejs Server
+# Course projects
 
-_38 group project_
+_38 group projects_
 
-This project is for educational porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
+These projects are for educational porpuses only. Pull request are welcome, but priority for projects' authors! Thank you for your cooperation!
 
 ## Project features
 
--   Node.js: http
--   Static file serving
+-   Vanilla HTML
+-   Vanilla CSS
+-   Vanilla JS
 
 ## Getting project ready
 
@@ -21,31 +21,6 @@ This project is for educational porpuses only. Pull request are welcome, but pri
 
 ```
 $ git clone https://github.com/Zilvis0/Kursai
-```
-
-2. Install
-
-```
-npm i
-```
-
-3. Run (read ⤵)
-
-## Running the server
-
-In `dev` mode:
-
-```
-node ./index.js
-NODE_ENV=dev node ./index.js
-NODE_ENV=test node ./index.js
-NODE_ENV=pomidoras node ./index.js
-```
-
-In a specific (pre-defined) `prod` mode:
-
-```
-NODE_ENV=prod node ./index.js
 ```
 
 ## Authors
