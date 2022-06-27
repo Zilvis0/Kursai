@@ -7,7 +7,7 @@
 
 _38 group projects_
 
-These projects are for educational porpuses only. Pull request are welcome, but priority for projects' authors! Thank you for your cooperation!
+These projects are for educational purposes only. Pull request are welcome, but priority for projects' authors! Thank you for your cooperation!
 
 ## Project features
 
